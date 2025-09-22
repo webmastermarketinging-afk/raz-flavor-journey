@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* RAZ Brand Design System - Premium Cannabis Experience */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* RAZ Brand Colors - Exact from Brand Book */
+    --raz-white: 0 0% 100%;
+    --raz-black: 210 6% 12%;
+    --raz-red: 0 100% 50%;
+    --raz-blue: 200 100% 58%;
+    
+    /* Semantic Color System */
+    --background: var(--raz-black);
+    --foreground: var(--raz-white);
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: var(--raz-black);
+    --card-foreground: var(--raz-white);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: var(--raz-black);
+    --popover-foreground: var(--raz-white);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--raz-red);
+    --primary-foreground: var(--raz-white);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--raz-blue);
+    --secondary-foreground: var(--raz-white);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 6% 20%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--raz-blue);
+    --accent-foreground: var(--raz-white);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: var(--raz-red);
+    --destructive-foreground: var(--raz-white);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 6% 25%;
+    --input: 210 6% 15%;
+    --ring: var(--raz-blue);
 
-    --radius: 0.5rem;
+    /* RAZ Premium Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--raz-blue)) 0%, hsl(var(--raz-red)) 100%);
+    --gradient-hybrid: linear-gradient(135deg, hsl(200 100% 58%) 0%, hsl(240 100% 70%) 100%);
+    --gradient-indica: linear-gradient(135deg, hsl(120 100% 30%) 0%, hsl(150 100% 40%) 100%);
+    --gradient-sativa: linear-gradient(135deg, hsl(var(--raz-red)) 0%, hsl(15 100% 60%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    
+    /* Premium Shadows */
+    --shadow-neon: 0 0 30px hsl(var(--raz-blue) / 0.5);
+    --shadow-red-glow: 0 0 40px hsl(var(--raz-red) / 0.4);
+    --shadow-deep: 0 25px 50px -12px hsl(var(--raz-black) / 0.8);
+    --shadow-glass: 0 8px 32px rgba(0,0,0,0.3);
+
+    /* Advanced Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-slow: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -55,42 +78,22 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  /* Light mode - preserving original dark aesthetic */
+  .light {
+    --background: var(--raz-white);
+    --foreground: var(--raz-black);
+    --card: var(--raz-white);
+    --card-foreground: var(--raz-black);
+    --border: 210 6% 90%;
+    --input: 210 6% 95%;
+  }
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  /* Custom Font Face for Druk Wide */
+  @font-face {
+    font-family: 'Druk Wide';
+    src: url('https://fonts.cdnfonts.com/css/druk-wide') format('woff2');
+    font-weight: 700 900;
+    font-display: swap;
   }
 }
 
@@ -100,6 +103,150 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Smooth scrolling for entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--raz-black));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, hsl(var(--raz-blue)), hsl(var(--raz-red)));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, hsl(var(--raz-red)), hsl(var(--raz-blue)));
+  }
+}
+
+@layer components {
+  /* RAZ Typography System */
+  .font-druk {
+    font-family: 'Druk Wide', 'Poppins', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .font-poppins-bold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Interactive Product Cards */
+  .product-card {
+    @apply relative overflow-hidden rounded-2xl;
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: var(--transition-smooth);
+    transform-style: preserve-3d;
+  }
+
+  .product-card:hover {
+    transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+    box-shadow: var(--shadow-neon);
+  }
+
+  /* Floating animations */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    50% { transform: translateY(-20px) rotate(0deg); }
+    75% { transform: translateY(-10px) rotate(-1deg); }
+  }
+
+  /* Parallax scroll effects */
+  .parallax-slow {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Infinite scroll animations */
+  .scroll-infinite {
+    animation: scroll-x 30s linear infinite;
+  }
+
+  @keyframes scroll-x {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  /* 3D Strain showcase */
+  .strain-showcase {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .strain-item {
+    transition: var(--transition-bounce);
+    transform-origin: center center;
+  }
+
+  .strain-item:hover {
+    transform: scale(1.1) rotateY(15deg);
+    z-index: 10;
+  }
+
+  /* Neon text effects */
+  .neon-text {
+    text-shadow: 
+      0 0 5px hsl(var(--raz-blue)),
+      0 0 10px hsl(var(--raz-blue)),
+      0 0 15px hsl(var(--raz-blue)),
+      0 0 20px hsl(var(--raz-blue));
+    animation: neon-pulse 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes neon-pulse {
+    from {
+      text-shadow: 
+        0 0 5px hsl(var(--raz-blue)),
+        0 0 10px hsl(var(--raz-blue)),
+        0 0 15px hsl(var(--raz-blue)),
+        0 0 20px hsl(var(--raz-blue));
+    }
+    to {
+      text-shadow: 
+        0 0 2px hsl(var(--raz-blue)),
+        0 0 5px hsl(var(--raz-blue)),
+        0 0 8px hsl(var(--raz-blue)),
+        0 0 12px hsl(var(--raz-blue));
+    }
+  }
+
+  /* Hero gradient background */
+  .hero-bg {
+    background: var(--gradient-hero);
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Glass morphism effects */
+  .glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
   }
 }
