@@ -249,4 +249,14 @@
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.1);
   }
+
+  /* Hide scrollbars for horizontal scroll sections */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

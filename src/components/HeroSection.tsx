@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import razHeroImage from '@/assets/raz-hero-products.jpg';
 
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -43,6 +44,15 @@ const HeroSection = () => {
             Experience premium 1.5G THC-P infused pre-rolls. Three distinct strains, 
             each with unique flavors and effects. 100% federally compliant hemp flower.
           </p>
+          
+          {/* Hero Product Image */}
+          <div className="mb-8">
+            <img
+              src={razHeroImage}
+              alt="RAZ THC-P Diamond Infused Pre-Rolls"
+              className="w-full max-w-2xl mx-auto transform hover:scale-105 transition-transform duration-700 animate-float drop-shadow-2xl"
+            />
+          </div>
         </div>
 
         {/* CTA Buttons */}
