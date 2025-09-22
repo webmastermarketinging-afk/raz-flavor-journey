@@ -177,13 +177,7 @@ const ScrollytellingSection = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           {/* Text Content */}
-          <div 
-            className="space-y-8 text-center lg:text-left transition-all duration-700 ease-out"
-            style={{
-              opacity: 1,
-              transform: 'translateX(0px)'
-            }}
-          >
+          <div className="space-y-8 text-center lg:text-left">
             {/* Title */}
             <div className="space-y-4">
               <h1 className="font-druk text-6xl md:text-8xl lg:text-9xl text-white neon-text tracking-tighter">
@@ -230,13 +224,7 @@ const ScrollytellingSection = () => {
           </div>
 
           {/* Visual Indicator */}
-          <div 
-            className="flex items-center justify-center transition-all duration-700 ease-out"
-            style={{
-              opacity: 1,
-              transform: 'translateX(0px)'
-            }}
-          >
+          <div className="flex items-center justify-center">
             <div className="relative">
               <div className="w-64 h-64 rounded-full glass border-4 border-white/20 flex items-center justify-center">
                 <span className="text-8xl font-druk text-white neon-text">
