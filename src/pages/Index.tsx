@@ -10,8 +10,8 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <HeroSection />
-      <ScrollytellingSection />
       <InfiniteScroll />
+      <ScrollytellingSection />
       <StrainShowcase />
       <ProductStorytellingScroll />
       <ParallaxSection />
