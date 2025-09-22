@@ -72,9 +72,10 @@ const NewsletterSection = () => {
             <div className="aspect-video rounded-3xl overflow-hidden shadow-lg">
               <video
                 className="w-full h-full object-cover"
-                controls
+                autoPlay
+                muted
+                loop
                 preload="metadata"
-                poster=""
               >
                 <source 
                   src="https://unicoscomotu.com/SEA/wp-content/uploads/2025/09/Video-de-WhatsApp-2025-09-22-a-las-09.22.02_a228bc02.mp4" 
