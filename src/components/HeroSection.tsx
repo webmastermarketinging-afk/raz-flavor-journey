@@ -17,7 +17,7 @@ const HeroSection = () => {
   const textTransform = Math.max(0, 50 - scrollY / 10); // Text slides up as user scrolls
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Full-screen background image - fades out on scroll */}
       <div 
         className="absolute inset-0 transition-opacity duration-300"
