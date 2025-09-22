@@ -2,7 +2,6 @@ import HeroSection from '@/components/HeroSection';
 import StrainShowcase from '@/components/StrainShowcase'; 
 import InfiniteScroll from '@/components/InfiniteScroll';
 import ProductStorytellingScroll from '@/components/ProductStorytellingScroll';
-import ParallaxSection from '@/components/ParallaxSection';
 import ComplianceSection from '@/components/ComplianceSection';
 import PreRollCarousel from '@/components/PreRollCarousel';
 
@@ -13,7 +12,6 @@ const Index = () => {
       <InfiniteScroll />
       <StrainShowcase />
       <ProductStorytellingScroll />
-      <ParallaxSection />
       <PreRollCarousel />
       <ComplianceSection />
     </main>
