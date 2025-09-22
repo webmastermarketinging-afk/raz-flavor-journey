@@ -4,11 +4,9 @@ import razProductDetails from '@/assets/raz-product-details.jpg';
 
 const ScrollytellingSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [currentStep, setCurrentStep] = useState(3); // Default to step 4 (index 3)
+  const [currentStep, setCurrentStep] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const scrollAccumulator = useRef(0);
-  const lastScrollTime = useRef(0);
 
   const steps = [
     {
@@ -57,19 +55,20 @@ const ScrollytellingSection = () => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Intersection Observer to detect when section is in view
+    // Intersection Observer to detect when section is properly centered
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const isInView = entry.intersectionRatio > 0.6;
+        const isInView = entry.intersectionRatio > 0.8; // Section is 80% visible
         setIsActive(isInView);
         
-        // Reset to step 4 (index 3) as default when entering the section
-        if (isInView && !isTransitioning) {
-          setCurrentStep(3);
+        // Reset scroll progress when entering the section
+        if (isInView && scrollProgress === 0) {
+          setCurrentStep(0);
+          setScrollProgress(0);
         }
       },
       {
-        threshold: 0.6,
+        threshold: 0.8, // Trigger when 80% of section is visible
         rootMargin: '0px'
       }
     );
@@ -77,58 +76,34 @@ const ScrollytellingSection = () => {
     observer.observe(container);
 
     const handleScroll = (e: WheelEvent) => {
-      if (!isActive || isTransitioning) return;
+      // Only activate scroll when section is properly in view
+      if (!isActive) return;
       
       e.preventDefault();
       
-      const now = Date.now();
-      const timeSinceLastScroll = now - lastScrollTime.current;
+      const scrollSpeed = 2;
+      const maxScroll = (steps.length - 1) * 100;
+      const newScrollProgress = Math.max(0, Math.min(maxScroll, scrollProgress + (e.deltaY * scrollSpeed / 10)));
       
-      // Reset accumulator if enough time has passed (debounce)
-      if (timeSinceLastScroll > 150) {
-        scrollAccumulator.current = 0;
+      setScrollProgress(newScrollProgress);
+      setCurrentStep(Math.floor(newScrollProgress / 100));
+      
+      // Scroll to next section when reaching the end
+      if (newScrollProgress >= maxScroll && e.deltaY > 0) {
+        setIsActive(false); // Deactivate current section
+        const nextSection = container.nextElementSibling as HTMLElement;
+        if (nextSection) {
+          nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
       }
       
-      lastScrollTime.current = now;
-      scrollAccumulator.current += Math.abs(e.deltaY);
-      
-      // Require significant scroll to change steps (threshold)
-      const scrollThreshold = 100;
-      
-      if (scrollAccumulator.current >= scrollThreshold) {
-        setIsTransitioning(true);
-        scrollAccumulator.current = 0;
-        
-        if (e.deltaY > 0) {
-          // Scroll down - next step
-          if (currentStep < steps.length - 1) {
-            setCurrentStep(prev => prev + 1);
-          } else {
-            // At last step, go to next section
-            setIsActive(false);
-            const nextSection = container.nextElementSibling as HTMLElement;
-            if (nextSection) {
-              nextSection.scrollIntoView({ behavior: 'smooth' });
-            }
-          }
-        } else {
-          // Scroll up - previous step
-          if (currentStep > 0) {
-            setCurrentStep(prev => prev - 1);
-          } else {
-            // At first step, go to previous section
-            setIsActive(false);
-            const prevSection = container.previousElementSibling as HTMLElement;
-            if (prevSection) {
-              prevSection.scrollIntoView({ behavior: 'smooth' });
-            }
-          }
+      // Allow scrolling to previous section at the beginning
+      if (newScrollProgress === 0 && e.deltaY < 0) {
+        const prevSection = container.previousElementSibling as HTMLElement;
+        if (prevSection) {
+          setIsActive(false); // Deactivate current section
+          prevSection.scrollIntoView({ behavior: 'smooth' });
         }
-        
-        // Reset transition state after animation
-        setTimeout(() => {
-          setIsTransitioning(false);
-        }, 600);
       }
     };
 
@@ -138,9 +113,10 @@ const ScrollytellingSection = () => {
       container.removeEventListener('wheel', handleScroll);
       observer.disconnect();
     };
-  }, [currentStep, steps.length, isActive, isTransitioning]);
+  }, [scrollProgress, steps.length, isActive]);
 
   const currentStepData = steps[currentStep];
+  const stepProgress = scrollProgress % 100;
 
   return (
     <section 
@@ -149,18 +125,18 @@ const ScrollytellingSection = () => {
     >
       {/* Background with gradient transition */}
       <div 
-        className={`absolute inset-0 bg-gradient-to-br ${currentStepData?.gradient} transition-all duration-700 ease-out`}
+        className={`absolute inset-0 bg-gradient-to-br ${currentStepData?.gradient} transition-all duration-1000 ease-out`}
         style={{
-          opacity: isActive ? 0.3 : 0.1
+          opacity: 0.1 + (stepProgress / 100) * 0.2
         }}
       />
 
       {/* Background Image */}
       {currentStepData?.image && (
         <div 
-          className="absolute inset-0 transition-all duration-700 ease-out"
+          className="absolute inset-0 transition-all duration-1000 ease-out"
           style={{
-            opacity: 0.4
+            opacity: stepProgress / 100 * 0.3
           }}
         >
           <img
@@ -178,10 +154,10 @@ const ScrollytellingSection = () => {
           
           {/* Text Content */}
           <div 
-            className="space-y-8 text-center lg:text-left transition-all duration-700 ease-out"
+            className="space-y-8 text-center lg:text-left"
             style={{
-              opacity: 1,
-              transform: 'translateX(0px)'
+              transform: `translateX(${-50 + (stepProgress / 100) * 50}px)`,
+              opacity: stepProgress / 100
             }}
           >
             {/* Title */}
@@ -231,10 +207,10 @@ const ScrollytellingSection = () => {
 
           {/* Visual Indicator */}
           <div 
-            className="flex items-center justify-center transition-all duration-700 ease-out"
+            className="flex items-center justify-center"
             style={{
-              opacity: 1,
-              transform: 'translateX(0px)'
+              transform: `translateX(${50 - (stepProgress / 100) * 50}px)`,
+              opacity: stepProgress / 100
             }}
           >
             <div className="relative">
