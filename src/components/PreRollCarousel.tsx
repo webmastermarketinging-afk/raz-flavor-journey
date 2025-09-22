@@ -123,11 +123,11 @@ const PreRollCarousel = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
             
-            {/* Left Side - Pre-Roll Image with 3D Effect */}
+            {/* Left Side - Pre-Roll Image with 3D Effect (Larger) */}
             <div className="flex justify-center">
               <div className={`relative group cursor-pointer transition-all duration-700 ease-out ${isAnimating ? 'scale-95 opacity-60' : 'scale-100 opacity-100'}`}>
                 <div 
-                  className={`relative w-48 h-32 transition-all duration-500 ease-out transform group-hover:scale-110 group-hover:-rotate-12 ${currentPreRoll.glowColor} group-hover:shadow-xl`}
+                  className={`relative w-64 h-40 transition-all duration-500 ease-out transform group-hover:scale-110 group-hover:-rotate-12 ${currentPreRoll.glowColor} group-hover:shadow-xl`}
                   style={{
                     transformStyle: 'preserve-3d',
                     perspective: '800px'
@@ -147,7 +147,7 @@ const PreRollCarousel = () => {
                     <img
                       src={prerollTypography}
                       alt="RAZ Typography"
-                      className="w-16 h-16 object-contain opacity-70"
+                      className="w-20 h-20 object-contain opacity-70"
                     />
                   </div>
 
@@ -157,25 +157,39 @@ const PreRollCarousel = () => {
               </div>
             </div>
 
-            {/* Center - Product Information */}
-            <div className={`space-y-4 text-center transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
-              {/* Type Badge */}
-              <div className="flex justify-center">
-                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold text-xs`}>
-                  {getTypeIcon(currentPreRoll.type)}
-                  <span>{currentPreRoll.type}</span>
+            {/* Center - Strain Image with Name */}
+            <div className={`flex justify-center transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
+              <div className="relative group cursor-pointer">
+                {/* Strain Image */}
+                <div className="relative w-48 h-32 rounded-xl overflow-hidden">
+                  <img
+                    src={currentPreRoll.image}
+                    alt={currentPreRoll.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  
+                  {/* Gradient Overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent`} />
+                  
+                  {/* Type Badge */}
+                  <div className="absolute top-2 right-2">
+                    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold text-xs`}>
+                      {getTypeIcon(currentPreRoll.type)}
+                      <span>{currentPreRoll.type}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Product Name Overlay */}
+                  <div className="absolute bottom-2 left-2 right-2">
+                    <h2 className="font-druk text-xl lg:text-2xl text-white tracking-tight drop-shadow-lg">
+                      {currentPreRoll.name}
+                    </h2>
+                    <p className="text-xs text-white/80 mt-1">
+                      {currentPreRoll.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-
-              {/* Product Name */}
-              <h2 className="font-druk text-3xl lg:text-4xl text-foreground tracking-tight">
-                {currentPreRoll.name}
-              </h2>
-              
-              {/* Description */}
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm mx-auto">
-                {currentPreRoll.description}
-              </p>
             </div>
 
             {/* Right Side - Stats & CTA */}
