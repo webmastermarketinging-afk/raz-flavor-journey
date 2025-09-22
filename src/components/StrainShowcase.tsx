@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
-import alaskanImage from '@/assets/alaskan-thunderfuck.jpg';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import alaskanThunderfuckImage from '@/assets/alaskan-thunderfuck.jpg';
+import strawberryKushImage from '@/assets/strawberry-kush.jpg';
+import alienCookiesImage from '@/assets/alien-cookies.jpg';
 
 interface Strain {
   id: string;
@@ -23,7 +27,7 @@ const strains: Strain[] = [
     description: 'Experience the perfect balance of mind and body with this legendary Alaskan strain. Known for its potent effects and unique flavor profile.',
     color: 'blue',
     gradient: 'bg-gradient-hybrid',
-    image: alaskanImage
+    image: alaskanThunderfuckImage
   },
   {
     id: 'alien',
@@ -34,7 +38,7 @@ const strains: Strain[] = [
     description: 'Unwind with this otherworldly indica blend. Perfect for evening relaxation and deep, restful sleep.',
     color: 'green',
     gradient: 'bg-gradient-indica',
-    image: alaskanImage
+    image: alienCookiesImage
   },
   {
     id: 'strawberry',
@@ -45,7 +49,7 @@ const strains: Strain[] = [
     description: 'Elevate your day with this delicious sativa. Bursting with fruity flavors and energizing effects.',
     color: 'red',
     gradient: 'bg-gradient-sativa',
-    image: alaskanImage
+    image: strawberryKushImage
   }
 ];
 
@@ -62,7 +66,13 @@ const StrainShowcase = () => {
   const currentStrain = strains[activeStrain];
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <motion.section 
+      className="relative py-20 overflow-hidden"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       {/* Background with parallax effect */}
       <div 
         className={`absolute inset-0 ${currentStrain.gradient} opacity-10 transition-all duration-1000`}
@@ -188,7 +198,7 @@ const StrainShowcase = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

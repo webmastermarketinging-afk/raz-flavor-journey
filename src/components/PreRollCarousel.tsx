@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Leaf, Zap, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import razPrerollClean from '@/assets/raz-preroll-clean.png';
@@ -104,7 +105,14 @@ const PreRollCarousel = () => {
         return <Leaf className="w-5 h-5" />;
     }
   };
-  return <section id="preroll-carousel" className="relative h-[300px] bg-background overflow-hidden">
+  return <motion.section 
+    id="preroll-carousel" 
+    className="relative h-[300px] bg-background overflow-hidden"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+  >
       {/* Background with smooth transitions */}
       <div className={`absolute inset-0 bg-gradient-to-r ${currentPreRoll.gradient} opacity-5 transition-all duration-700 ease-out`} />
       
@@ -191,6 +199,6 @@ const PreRollCarousel = () => {
           {String(currentIndex + 1).padStart(2, '0')} / {String(preRolls.length).padStart(2, '0')}
         </span>
       </div>
-    </section>;
+    </motion.section>;
 };
 export default PreRollCarousel;

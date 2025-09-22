@@ -11,9 +11,18 @@ const features = [
   'Expert Crafted Blends'
 ];
 
+import { motion } from 'framer-motion';
+
 const InfiniteScroll = () => {
   return (
-    <section className="py-16 overflow-hidden border-y border-border bg-raz-black" style={{ backgroundColor: 'hsl(var(--raz-black))' }}>
+    <motion.section 
+      className="py-16 overflow-hidden border-y border-border bg-raz-black" 
+      style={{ backgroundColor: 'hsl(var(--raz-black))' }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       <div className="relative">
         {/* Primary scroll track */}
         <div className="flex whitespace-nowrap animate-scroll-x">
@@ -45,7 +54,7 @@ const InfiniteScroll = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

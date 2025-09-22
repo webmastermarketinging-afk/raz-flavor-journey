@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 
 const NewsletterSection = () => {
@@ -12,7 +13,13 @@ const NewsletterSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+    <motion.section 
+      className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Half - Newsletter Content */}
@@ -87,7 +94,7 @@ const NewsletterSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

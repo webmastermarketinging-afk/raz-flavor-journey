@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Shield, Award, Leaf, FileCheck } from 'lucide-react';
 
 const certifications = [
@@ -29,7 +30,13 @@ const certifications = [
 
 const ComplianceSection = () => {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <motion.section 
+      className="py-20 relative overflow-hidden"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
       
@@ -103,7 +110,7 @@ const ComplianceSection = () => {
           </a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

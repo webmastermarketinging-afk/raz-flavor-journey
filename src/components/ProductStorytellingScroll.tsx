@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Scale, Users, CheckCircle } from 'lucide-react';
 import bannerImage from '@/assets/banner-01.jpg';
 
@@ -25,7 +27,13 @@ const productFeatures = [{
 }];
 
 const ProductStorytellingScroll = () => {
-  return <section className="py-20 overflow-hidden bg-background relative">
+  return <motion.section 
+    className="py-20 overflow-hidden bg-background relative"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+  >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Half - Content */}
@@ -98,6 +106,6 @@ const ProductStorytellingScroll = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </motion.section>;
 };
 export default ProductStorytellingScroll;
