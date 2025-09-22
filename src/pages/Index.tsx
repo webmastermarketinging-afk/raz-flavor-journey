@@ -1,4 +1,5 @@
 import HeroSection from '@/components/HeroSection';
+import ScrollytellingSection from '@/components/ScrollytellingSection';
 import StrainShowcase from '@/components/StrainShowcase'; 
 import InfiniteScroll from '@/components/InfiniteScroll';
 import ProductStorytellingScroll from '@/components/ProductStorytellingScroll';
@@ -9,6 +10,7 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <HeroSection />
+      <ScrollytellingSection />
       <InfiniteScroll />
       <StrainShowcase />
       <ProductStorytellingScroll />
