@@ -112,7 +112,11 @@ const StrainShowcase = () => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      
+      {/* Background with parallax effect */}
+      <div 
+        className={`absolute inset-0 ${currentStrain.gradient} opacity-10`}
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+      />
 
       <div className="container mx-auto px-4">
         {/* Section header */}

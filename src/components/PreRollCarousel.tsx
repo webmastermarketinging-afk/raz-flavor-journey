@@ -61,6 +61,14 @@ const PreRollCarousel = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const currentPreRoll = preRolls[currentIndex];
 
+  // Parallax effect
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 1.1]);
   const nextSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
@@ -130,9 +138,17 @@ const PreRollCarousel = () => {
     onMouseEnter={() => setIsPaused(true)}
     onMouseLeave={() => setIsPaused(false)}
   >
-      {/* Product-specific gradient background */}
-      <div 
-        className={`absolute inset-0 w-full h-full bg-gradient-to-br ${currentPreRoll.gradient} transition-all duration-700 ease-out`}
+      {/* Parallax Background */}
+      <motion.div 
+        className="absolute inset-0 w-full h-full"
+        style={{ 
+          y,
+          scale,
+          backgroundImage: `url(${rainbowBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
       />
       
       {/* Enhanced overlay with gradient */}
