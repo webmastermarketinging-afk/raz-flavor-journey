@@ -112,7 +112,7 @@ const StrainShowcase = () => {
         {/* Section header */}
         <div className="text-center mb-16">
           <h2 className="font-druk text-5xl md:text-7xl text-foreground mb-4">
-            three worlds
+            STRAIN SHOWCASE
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Discover unique flavor profiles and effects crafted for every experience
@@ -181,7 +181,7 @@ const StrainShowcase = () => {
                   </h3>
                   
                   <div className="text-center">
-                    <span className="text-2xl font-poppins-bold text-foreground">three worlds</span>
+                    <span className="text-lg font-poppins-bold text-foreground">1.5G THC-P Diamond infused Preroll</span>
                   </div>
                 </div>
               </div>
