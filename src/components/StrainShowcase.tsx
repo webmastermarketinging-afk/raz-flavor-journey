@@ -31,7 +31,7 @@ const strains: Strain[] = [
     type: 'HYBRID',
     flavor: 'This hybrid offers a perfect balance of relaxation and energy. Ideal for a smooth, well-rounded experience any time of day.',
     effects: ['Euphoric', 'Creative', 'Balanced', 'Uplifting'],
-    description: 'Alaskan Thunderf*k is known for its bold, earthy aroma and powerful effects. This hybrid offers a perfect balance with a clear, cerebral buzz and deep body relaxation.',
+    description: 'Alazkan Thunderf*ck is known for its bold, earthy aroma and powerful effects. This hybrid offers a perfect balance with a clear, cerebral buzz and deep body relaxation.',
     color: 'blue',
     gradient: 'bg-gradient-hybrid',
     images: [alaskanThunderfuckBox, alaskanThunderfuckProducts, alaskanThunderfuckSingle]
