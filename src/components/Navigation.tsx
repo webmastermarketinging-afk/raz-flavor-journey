@@ -56,7 +56,7 @@ const Navigation = () => {
                     to={item.href}
                     className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
                       isActive
-                        ? 'bg-gradient-to-r from-raz-red to-raz-blue text-white shadow-neon'
+                        ? 'bg-gradient-holographic text-transparent bg-clip-text shadow-neon'
                         : 'text-black hover:text-primary hover:shadow-glass'
                     }`}
                   >
@@ -100,7 +100,7 @@ const Navigation = () => {
                   to={item.href}
                   className={`flex items-center p-4 rounded-xl transition-all duration-300 hover:scale-105 ${
                     isActive
-                      ? 'bg-gradient-to-r from-raz-red to-raz-blue text-white shadow-neon'
+                      ? 'bg-gradient-holographic text-transparent bg-clip-text shadow-neon'
                       : 'text-foreground hover:bg-white/5 hover:shadow-glass'
                   }`}
                   style={{ 

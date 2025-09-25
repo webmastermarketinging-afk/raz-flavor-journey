@@ -67,7 +67,7 @@ const NewsletterSection = () => {
               
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-poppins-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-lg"
+                className="w-full px-8 py-4 bg-gradient-holographic text-white font-poppins-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-neon hover:scale-105"
               >
                 Subscribe Now
               </button>

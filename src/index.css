@@ -47,6 +47,12 @@
     --gradient-indica: linear-gradient(135deg, hsl(120 60% 45%) 0%, hsl(150 70% 50%) 100%);
     --gradient-sativa: linear-gradient(135deg, hsl(var(--raz-red)) 0%, hsl(15 85% 65%) 100%);
     --gradient-glass: linear-gradient(135deg, rgba(200, 236, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+    --gradient-holographic: url('/src/assets/holographic-texture.png'), linear-gradient(135deg, 
+      hsla(270, 70%, 80%, 0.9) 0%, 
+      hsla(300, 70%, 85%, 0.9) 25%, 
+      hsla(180, 70%, 85%, 0.9) 50%, 
+      hsla(60, 70%, 85%, 0.9) 75%, 
+      hsla(330, 70%, 80%, 0.9) 100%);
     
     /* Premium Shadows - Adapted for White Background */
     --shadow-neon: 0 0 30px hsl(var(--raz-blue) / 0.3);
@@ -124,12 +130,13 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, hsl(var(--raz-blue)), hsl(var(--raz-red)));
+    background: var(--gradient-holographic);
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, hsl(var(--raz-red)), hsl(var(--raz-blue)));
+    background: var(--gradient-holographic);
+    transform: scale(1.1);
   }
 }
 

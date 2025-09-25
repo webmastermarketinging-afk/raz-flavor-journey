@@ -75,6 +75,7 @@ export default {
         'gradient-indica': 'var(--gradient-indica)',
         'gradient-sativa': 'var(--gradient-sativa)',
         'gradient-glass': 'var(--gradient-glass)',
+        'gradient-holographic': 'var(--gradient-holographic)',
       },
       boxShadow: {
         'neon': 'var(--shadow-neon)',
