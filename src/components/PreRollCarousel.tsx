@@ -4,6 +4,8 @@ import { ChevronLeft, ChevronRight, Leaf, Zap, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import razPrerollClean from '@/assets/raz-preroll-clean.png';
 import alaskanTitle from '@/assets/alaskan-title.png';
+import alienCookiesLogo from '@/assets/alien-cookies-logo.png';
+import strawberryKushLogo from '@/assets/strawberry-kush-logo.png';
 import prerollVerde from '@/assets/preroll-verde-2.png';
 import prerollRojo from '@/assets/preroll-rojo-2.png';
 import rainbowBackground from '@/assets/rainbow-background.png';
@@ -19,6 +21,7 @@ const preRolls = [{
   thc: '25-29%',
   weight: '1.5G',
   image: prerollRojo3,
+  logo: strawberryKushLogo,
   gradient: 'from-red-600 via-red-500 to-pink-400',
   glowColor: 'shadow-red-600/30',
   description: 'Sweet strawberry flavor with energizing effects.'
@@ -31,6 +34,7 @@ const preRolls = [{
   thc: '26-30%',
   weight: '1.5G',
   image: prerollBlue3,
+  logo: alaskanTitle,
   gradient: 'from-blue-500 via-cyan-400 to-sky-300',
   glowColor: 'shadow-blue-500/30',
   description: 'Perfect balance of mind and body effects.'
@@ -43,6 +47,7 @@ const preRolls = [{
   thc: '24-28%',
   weight: '1.5G',
   image: prerollVerde3,
+  logo: alienCookiesLogo,
   gradient: 'from-green-600 via-green-500 to-emerald-400',
   glowColor: 'shadow-green-600/30',
   description: 'Deep relaxation with sweet cookie flavor.'
@@ -176,7 +181,7 @@ const PreRollCarousel = () => {
               {/* Product Title Image */}
               <div className="relative">
                 <img 
-                  src={alaskanTitle} 
+                  src={currentPreRoll.logo} 
                   alt={currentPreRoll.name} 
                   className="h-10 sm:h-16 object-contain" 
                 />
