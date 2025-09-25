@@ -114,9 +114,6 @@ const StrainShowcase = () => {
           <h2 className="font-druk text-5xl md:text-7xl text-foreground mb-4">
             1.5G THC-P Diamond infused Preroll
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover unique flavor profiles and effects crafted for every experience
-          </p>
         </div>
 
         {/* Interactive strain selector */}
