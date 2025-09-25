@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Leaf, Zap, Heart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import razPrerollClean from '@/assets/raz-preroll-clean.png';
 import alaskanTitle from '@/assets/alaskan-title.png';
@@ -53,6 +54,7 @@ const preRolls = [{
   description: 'Deep relaxation with sweet cookie flavor.'
 }];
 const PreRollCarousel = () => {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -203,7 +205,11 @@ const PreRollCarousel = () => {
               </div>
 
               {/* CTA Button - Hidden on mobile */}
-              <Button size="sm" className={`hidden sm:block px-6 py-2 bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 ${currentPreRoll.glowColor} hover:shadow-lg text-sm`}>
+              <Button 
+                size="sm" 
+                className={`hidden sm:block px-6 py-2 bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 ${currentPreRoll.glowColor} hover:shadow-lg text-sm`}
+                onClick={() => navigate('/contact')}
+              >
                 View more
               </Button>
             </div>

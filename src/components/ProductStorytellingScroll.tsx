@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Scale, Users, CheckCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import bannerImage from '@/assets/banner-01.jpg';
 
 const productFeatures = [{
@@ -27,7 +28,8 @@ const productFeatures = [{
 }];
 
 const ProductStorytellingScroll = () => {
-  return <motion.section 
+  const navigate = useNavigate();
+  return <motion.section
     className="py-20 overflow-hidden bg-background relative"
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +89,10 @@ const ProductStorytellingScroll = () => {
 
             {/* Call to Action */}
             <div className="text-center lg:text-left mt-8">
-              <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-poppins-bold text-lg rounded-2xl transition-all duration-300">
+              <button 
+                className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-poppins-bold text-lg rounded-2xl transition-all duration-300"
+                onClick={() => navigate('/lab-testing')}
+              >
                 View Lab Testing
               </button>
             </div>

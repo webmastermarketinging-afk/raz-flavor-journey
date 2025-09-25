@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import alaskanThunderfuckBox from '@/assets/alaskan-thunderfuck-box.png';
 import strawberryKushBox from '@/assets/strawberry-kush-box.png';
 import alienCookiesBox from '@/assets/alien-cookies-box.png';
@@ -60,6 +61,7 @@ const strains: Strain[] = [
 ];
 
 const StrainShowcase = () => {
+  const navigate = useNavigate();
   const [activeStrain, setActiveStrain] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [scrollY, setScrollY] = useState(0);
@@ -232,7 +234,10 @@ const StrainShowcase = () => {
                 </p>
               </div>
 
-              <button className={`px-8 py-4 ${currentStrain.gradient} text-white font-poppins-bold text-lg rounded-2xl`}>
+              <button 
+                className={`px-8 py-4 ${currentStrain.gradient} text-white font-poppins-bold text-lg rounded-2xl`}
+                onClick={() => navigate('/contact')}
+              >
                 Experience {currentStrain.type}
               </button>
             </div>
