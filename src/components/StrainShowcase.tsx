@@ -64,14 +64,7 @@ const StrainShowcase = () => {
   const navigate = useNavigate();
   const [activeStrain, setActiveStrain] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Auto-carousel functionality for main strains (7 seconds)
   useEffect(() => {
@@ -112,17 +105,14 @@ const StrainShowcase = () => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Background with parallax effect */}
-      <div 
-        className={`absolute inset-0 ${currentStrain.gradient} opacity-10`}
-        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-      />
+      {/* Background with gradient */}
+      <div className={`absolute inset-0 ${currentStrain.gradient} opacity-10`} />
 
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-16">
           <h2 className="font-druk text-5xl md:text-7xl text-foreground neon-text mb-4">
-            1.5G THC-P Diamond infused Preroll
+            THREE WORLDS
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Discover unique flavor profiles and effects crafted for every experience
