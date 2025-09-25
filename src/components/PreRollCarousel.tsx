@@ -7,9 +7,9 @@ import alaskanTitle from '@/assets/alaskan-title.png';
 import prerollVerde from '@/assets/preroll-verde-2.png';
 import prerollRojo from '@/assets/preroll-rojo-2.png';
 import rainbowBackground from '@/assets/rainbow-background.png';
-import strawberryKushBox from '@/assets/strawberry-kush-box.png';
-import alaskanThunderfuckBox from '@/assets/alaskan-thunderfuck-box.png';
-import alienCookiesBox from '@/assets/alien-cookies-box.png';
+import prerollRojo3 from '@/assets/preroll-rojo-3.png';
+import prerollVerde3 from '@/assets/preroll-verde-3.png';
+import prerollBlue3 from '@/assets/preroll-blue-3.png';
 const preRolls = [{
   id: 1,
   name: 'Strawberry Kush',
@@ -18,7 +18,7 @@ const preRolls = [{
   flavor: 'Strawberry, Sweet, Fruity',
   thc: '25-29%',
   weight: '1.5G',
-  image: strawberryKushBox,
+  image: prerollRojo3,
   gradient: 'from-red-600 via-red-500 to-pink-400',
   glowColor: 'shadow-red-600/30',
   description: 'Sweet strawberry flavor with energizing effects.'
@@ -30,7 +30,7 @@ const preRolls = [{
   flavor: 'Pine, Citrus, Diesel',
   thc: '26-30%',
   weight: '1.5G',
-  image: alaskanThunderfuckBox,
+  image: prerollBlue3,
   gradient: 'from-blue-500 via-cyan-400 to-sky-300',
   glowColor: 'shadow-blue-500/30',
   description: 'Perfect balance of mind and body effects.'
@@ -42,7 +42,7 @@ const preRolls = [{
   flavor: 'Earthy, Sweet, Cookie',
   thc: '24-28%',
   weight: '1.5G',
-  image: alienCookiesBox,
+  image: prerollVerde3,
   gradient: 'from-green-600 via-green-500 to-emerald-400',
   glowColor: 'shadow-green-600/30',
   description: 'Deep relaxation with sweet cookie flavor.'
