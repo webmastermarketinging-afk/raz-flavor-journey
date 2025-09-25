@@ -7,6 +7,8 @@ import alaskanTitle from '@/assets/alaskan-title.png';
 import alienCookies from '@/assets/alien-cookies.jpg';
 import strawberryKush from '@/assets/strawberry-kush.jpg';
 import alazkanThunderfuck from '@/assets/alazkan-thunderfuck.jpg';
+import prerollVerde from '@/assets/preroll-verde.png';
+import prerollRojo from '@/assets/preroll-rojo.png';
 const preRolls = [{
   id: 1,
   name: 'Alien Cookies',
@@ -43,6 +45,30 @@ const preRolls = [{
   gradient: 'from-blue-500 via-cyan-400 to-sky-300',
   glowColor: 'shadow-blue-500/30',
   description: 'Perfect balance of mind and body effects.'
+}, {
+  id: 4,
+  name: 'Green Dream',
+  type: 'INDICA',
+  effects: 'Calming, Peaceful, Relaxing',
+  flavor: 'Herbal, Earthy, Pine',
+  thc: '25-29%',
+  weight: '1.5G',
+  image: prerollVerde,
+  gradient: 'from-green-600 via-green-500 to-emerald-400',
+  glowColor: 'shadow-green-600/30',
+  description: 'Deep relaxation with natural herbal essence.'
+}, {
+  id: 5,
+  name: 'Cherry Blaze',
+  type: 'SATIVA',
+  effects: 'Energetic, Focused, Uplifting',
+  flavor: 'Cherry, Spicy, Sweet',
+  thc: '27-31%',
+  weight: '1.5G',
+  image: prerollRojo,
+  gradient: 'from-red-600 via-red-500 to-pink-400',
+  glowColor: 'shadow-red-600/30',
+  description: 'Fiery energy boost with cherry sweetness.'
 }];
 const PreRollCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
