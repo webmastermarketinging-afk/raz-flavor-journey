@@ -64,14 +64,7 @@ const StrainShowcase = () => {
   const navigate = useNavigate();
   const [activeStrain, setActiveStrain] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Auto-carousel functionality for main strains (7 seconds)
   useEffect(() => {
@@ -112,11 +105,8 @@ const StrainShowcase = () => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Background with parallax effect */}
-      <div 
-        className={`absolute inset-0 ${currentStrain.gradient} opacity-10`}
-        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-      />
+      {/* Background with gradient */}
+      <div className={`absolute inset-0 ${currentStrain.gradient} opacity-10`} />
 
       <div className="container mx-auto px-4">
         {/* Section header */}
