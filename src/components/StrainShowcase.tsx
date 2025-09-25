@@ -161,7 +161,7 @@ const StrainShowcase = () => {
                     <img
                       src={currentStrain.images[activeImageIndex]}
                       alt={currentStrain.name}
-                      className="w-full max-w-sm mx-auto rounded-xl transform rotate-3 transition-transform duration-500"
+                      className="w-full max-w-sm mx-auto rounded-xl transform rotate-3"
                     />
                     <div className={`absolute -inset-4 ${currentStrain.gradient} opacity-20 rounded-xl blur-xl`} />
                     
