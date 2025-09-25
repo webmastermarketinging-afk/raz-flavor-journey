@@ -118,7 +118,7 @@ const PreRollCarousel = () => {
   return <motion.section 
     ref={sectionRef}
     id="preroll-carousel" 
-    className="relative h-[200px] sm:h-[300px] overflow-hidden"
+    className="relative h-[250px] sm:h-[300px] overflow-hidden"
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
@@ -142,13 +142,13 @@ const PreRollCarousel = () => {
       
       {/* Main Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container mx-auto px-2 sm:px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8 items-center max-w-6xl mx-auto">
+          <div className="container mx-auto px-2 sm:px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 sm:gap-8 items-center max-w-6xl mx-auto">
             
             {/* Left Side - Large Clean Pre-Roll */}
             <div className="flex justify-center">
               <div className={`relative transition-all duration-700 ease-out ${isAnimating ? 'scale-95 opacity-60' : 'scale-100 opacity-100'}`}>
-                <div className="relative w-48 h-32 sm:w-80 sm:h-48 flex items-center justify-center">
+                <div className="relative w-36 h-24 sm:w-80 sm:h-48 flex items-center justify-center">
                   <img 
                     src={currentPreRoll.image} 
                     alt={`RAZ ${currentPreRoll.name} Pre-Roll`} 

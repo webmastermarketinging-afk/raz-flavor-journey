@@ -51,15 +51,15 @@ const ProductStorytellingScroll = () => {
             <div className="grid grid-cols-1 gap-6">
               {productFeatures.map(feature => {
                 const IconComponent = feature.icon;
-                return <div key={feature.id} className="group relative">
+                return <div key={feature.id} className="relative">
                   {/* Main Feature Card */}
-                  <div className="glass rounded-2xl p-6 relative overflow-hidden transition-all duration-500">
+                  <div className="glass rounded-2xl p-6 relative overflow-hidden">
                     {/* Background Gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-10 transition-opacity duration-500`} />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-10`} />
                     
                     <div className="flex items-center gap-4 relative z-10">
                       {/* Icon */}
-                      <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.color} flex items-center justify-center transition-all duration-500`}>
+                      <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.color} flex items-center justify-center`}>
                         <IconComponent className="w-8 h-8 text-white" />
                       </div>
 
