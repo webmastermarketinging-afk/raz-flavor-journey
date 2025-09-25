@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Scale, Users, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import bannerImage from '@/assets/banner-01.jpg';
-
 const productFeatures = [{
   id: 1,
   value: "1.5G",
@@ -26,16 +25,19 @@ const productFeatures = [{
   icon: CheckCircle,
   color: "from-green-400 to-emerald-600"
 }];
-
 const ProductStorytellingScroll = () => {
   const navigate = useNavigate();
-  return <motion.section
-    className="py-20 overflow-hidden bg-background relative"
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8 }}
-    viewport={{ once: true }}
-  >
+  return <motion.section className="py-20 overflow-hidden bg-background relative" initial={{
+    opacity: 0,
+    y: 50
+  }} whileInView={{
+    opacity: 1,
+    y: 0
+  }} transition={{
+    duration: 0.8
+  }} viewport={{
+    once: true
+  }}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Half - Content */}
@@ -52,8 +54,8 @@ const ProductStorytellingScroll = () => {
             {/* Interactive Product Features Grid */}
             <div className="grid grid-cols-1 gap-6">
               {productFeatures.map(feature => {
-                const IconComponent = feature.icon;
-                return <div key={feature.id} className="relative">
+              const IconComponent = feature.icon;
+              return <div key={feature.id} className="relative">
                   {/* Main Feature Card */}
                   <div className="glass rounded-2xl p-6 relative overflow-hidden">
                     {/* Background Gradient */}
@@ -84,15 +86,12 @@ const ProductStorytellingScroll = () => {
                     </div>
                   </div>
                 </div>;
-              })}
+            })}
             </div>
 
             {/* Call to Action */}
             <div className="text-center lg:text-left mt-8">
-              <button 
-                className="px-8 py-4 bg-gradient-holographic text-white font-poppins-bold text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-neon"
-                onClick={() => navigate('/lab-testing')}
-              >
+              <button onClick={() => navigate('/lab-testing')} className="px-8 py-4 bg-gradient-holographic font-poppins-bold text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-neon text-slate-950">
                 View Lab Testing
               </button>
             </div>
@@ -101,11 +100,7 @@ const ProductStorytellingScroll = () => {
           {/* Right Half - Image */}
           <div className="relative">
             <div className="relative rounded-3xl overflow-hidden">
-              <img 
-                src={bannerImage} 
-                alt="RAZ Pre-roll Products" 
-                className="w-full h-auto object-cover"
-              />
+              <img src={bannerImage} alt="RAZ Pre-roll Products" className="w-full h-auto object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
           </div>
