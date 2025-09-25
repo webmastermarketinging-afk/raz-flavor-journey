@@ -28,7 +28,7 @@ const InfiniteScroll = () => {
               <span className="font-druk text-2xl md:text-4xl text-white">
                 {feature}
               </span>
-              <div className="px-4 py-2 bg-primary rounded-full mx-8 flex-shrink-0" />
+              <div className="w-3 h-3 bg-gradient-holographic rounded-full mx-8 flex-shrink-0" />
             </div>
           ))}
         </div>
@@ -40,7 +40,7 @@ const InfiniteScroll = () => {
               key={index}
               className="inline-flex items-center mx-8 flex-shrink-0"
             >
-              <div className="px-3 py-1.5 bg-secondary rounded-full mx-6 flex-shrink-0" />
+              <div className="w-2 h-2 bg-gradient-holographic rounded-full mx-6 flex-shrink-0" />
               <span className="font-poppins-bold text-lg md:text-2xl text-white/70">
                 {text}
               </span>
