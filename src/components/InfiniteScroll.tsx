@@ -1,14 +1,7 @@
 const features = [
-  'Premium THC-P Diamond Infused',
   '1.5G Pre-Roll Perfection',
-  '100% Federally Compliant',
-  'Florida Cannabinoids',
-  'Child-Proof Packaging',
-  'Legally Verified & Approved',
-  'Three Distinct Strain Profiles',
-  'Laboratory Tested Quality',
-  'Premium Hemp Flower',
-  'Expert Crafted Blends'
+  '30 Bags Per Display',
+  '20 Display per case',
 ];
 
 import { motion } from 'framer-motion';
