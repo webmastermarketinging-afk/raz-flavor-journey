@@ -7,46 +7,50 @@ import alaskanTitle from '@/assets/alaskan-title.png';
 import prerollVerde from '@/assets/preroll-verde-2.png';
 import prerollRojo from '@/assets/preroll-rojo-2.png';
 import rainbowBackground from '@/assets/rainbow-background.png';
+import strawberryKushBox from '@/assets/strawberry-kush-box.png';
+import alaskanThunderfuckBox from '@/assets/alaskan-thunderfuck-box.png';
+import alienCookiesBox from '@/assets/alien-cookies-box.png';
 const preRolls = [{
   id: 1,
-  name: 'Green Dream',
-  type: 'INDICA',
-  effects: 'Calming, Peaceful, Relaxing',
-  flavor: 'Herbal, Earthy, Pine',
-  thc: '25-29%',
-  weight: '1.5G',
-  image: prerollVerde,
-  gradient: 'from-green-600 via-green-500 to-emerald-400',
-  glowColor: 'shadow-green-600/30',
-  description: 'Deep relaxation with natural herbal essence.'
-}, {
-  id: 2,
-  name: 'Cherry Blaze',
+  name: 'Strawberry Kush',
   type: 'SATIVA',
   effects: 'Energetic, Focused, Uplifting',
-  flavor: 'Cherry, Spicy, Sweet',
-  thc: '27-31%',
+  flavor: 'Strawberry, Sweet, Fruity',
+  thc: '25-29%',
   weight: '1.5G',
-  image: prerollRojo,
+  image: strawberryKushBox,
   gradient: 'from-red-600 via-red-500 to-pink-400',
   glowColor: 'shadow-red-600/30',
-  description: 'Fiery energy boost with cherry sweetness.'
+  description: 'Sweet strawberry flavor with energizing effects.'
 }, {
-  id: 3,
+  id: 2,
   name: 'Alaskan Thunderfuck',
   type: 'HYBRID',
   effects: 'Balanced, Focus, Euphoric',
   flavor: 'Pine, Citrus, Diesel',
   thc: '26-30%',
   weight: '1.5G',
-  image: razPrerollClean,
+  image: alaskanThunderfuckBox,
   gradient: 'from-blue-500 via-cyan-400 to-sky-300',
   glowColor: 'shadow-blue-500/30',
   description: 'Perfect balance of mind and body effects.'
+}, {
+  id: 3,
+  name: 'Alien Cookies',
+  type: 'INDICA',
+  effects: 'Calming, Peaceful, Relaxing',
+  flavor: 'Earthy, Sweet, Cookie',
+  thc: '24-28%',
+  weight: '1.5G',
+  image: alienCookiesBox,
+  gradient: 'from-green-600 via-green-500 to-emerald-400',
+  glowColor: 'shadow-green-600/30',
+  description: 'Deep relaxation with sweet cookie flavor.'
 }];
 const PreRollCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const currentPreRoll = preRolls[currentIndex];
 
@@ -100,9 +104,10 @@ const PreRollCarousel = () => {
 
   // Auto-play functionality
   useEffect(() => {
-    const interval = setInterval(nextSlide, 8000);
+    if (isPaused) return;
+    const interval = setInterval(nextSlide, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
   const getTypeIcon = (type: string) => {
     switch (type) {
       case 'INDICA':
@@ -123,6 +128,8 @@ const PreRollCarousel = () => {
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
     viewport={{ once: true }}
+    onMouseEnter={() => setIsPaused(true)}
+    onMouseLeave={() => setIsPaused(false)}
   >
       {/* Parallax Background */}
       <motion.div 
@@ -152,7 +159,7 @@ const PreRollCarousel = () => {
                   <img 
                     src={currentPreRoll.image} 
                     alt={`RAZ ${currentPreRoll.name} Pre-Roll`} 
-                    className="w-full h-full object-contain drop-shadow-2xl transform rotate-90" 
+                    className="w-full h-full object-contain drop-shadow-2xl" 
                   />
                 </div>
               </div>
