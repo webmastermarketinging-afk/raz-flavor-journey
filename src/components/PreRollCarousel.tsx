@@ -130,15 +130,9 @@ const PreRollCarousel = () => {
     onMouseEnter={() => setIsPaused(true)}
     onMouseLeave={() => setIsPaused(false)}
   >
-      {/* Static Background */}
+      {/* Product-specific gradient background */}
       <div 
-        className="absolute inset-0 w-full h-full"
-        style={{ 
-          backgroundImage: `url(${rainbowBackground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
+        className={`absolute inset-0 w-full h-full bg-gradient-to-br ${currentPreRoll.gradient} transition-all duration-700 ease-out`}
       />
       
       {/* Enhanced overlay with gradient */}
