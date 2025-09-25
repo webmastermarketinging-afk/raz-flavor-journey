@@ -191,7 +191,7 @@ const PreRollCarousel = () => {
             </div>
 
             {/* Right Side - Stats & CTA */}
-            <div className={`space-y-3 sm:space-y-4 text-center transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
+            <div className={`space-y-3 sm:space-y-4 text-center flex flex-col items-center transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
               {/* Quick Stats */}
               <div className="flex justify-center gap-2 sm:gap-4">
                 <div className="glass p-1.5 sm:p-2 rounded-lg text-center min-w-[50px] sm:min-w-[60px]">

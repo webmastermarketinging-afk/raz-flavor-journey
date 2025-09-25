@@ -125,7 +125,10 @@ const Contact = () => {
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
               Find authorized retailers near you to purchase our premium pre-roll products.
             </p>
-            <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-poppins-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <button 
+              className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-poppins-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+              onClick={() => window.location.href = 'mailto:info@razprerolls.com'}
+            >
               Find Retailers
             </button>
           </motion.div>

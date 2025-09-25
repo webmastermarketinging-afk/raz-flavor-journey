@@ -1,16 +1,25 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 import newsletterBackground from '@/assets/newsletter-background.png';
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState('');
+  const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle newsletter subscription
     console.log('Newsletter subscription:', email);
     setEmail('');
+    
+    // Show success toast
+    toast({
+      title: "¡Gracias por suscribirte!",
+      description: "Te mantendremos al día con las últimas novedades de RAZ.",
+      duration: 4000,
+    });
   };
 
   return (
