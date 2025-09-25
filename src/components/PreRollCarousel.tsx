@@ -161,7 +161,7 @@ const PreRollCarousel = () => {
             {/* Center - Title Image with Type */}
             <div className={`flex flex-col items-center justify-center space-y-4 transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
               {/* Type Badge Above */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/20 backdrop-blur-sm border border-white/30 text-foreground font-bold text-sm">
+              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold text-sm shadow-lg`}>
                 {getTypeIcon(currentPreRoll.type)}
                 <span>{currentPreRoll.type}</span>
               </div>
@@ -191,7 +191,7 @@ const PreRollCarousel = () => {
               </div>
 
               {/* CTA Button */}
-              <Button size="sm" className="px-6 py-2 bg-black/20 backdrop-blur-sm border border-white/30 text-foreground font-bold rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-lg">
+              <Button size="sm" className={`px-6 py-2 bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 ${currentPreRoll.glowColor} hover:shadow-lg`}>
                 View more
               </Button>
             </div>
@@ -214,7 +214,7 @@ const PreRollCarousel = () => {
 
       {/* Slide Indicators */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-        {preRolls.map((_, index) => <button key={index} onClick={() => goToSlide(index)} disabled={isAnimating} className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-foreground shadow-md scale-125' : 'bg-white/40 hover:bg-white/60'}`} />)}
+        {preRolls.map((_, index) => <button key={index} onClick={() => goToSlide(index)} disabled={isAnimating} className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? `bg-gradient-to-r ${currentPreRoll.gradient} shadow-md scale-125` : 'bg-white/40 hover:bg-white/60'}`} />)}
       </div>
 
       {/* Product Counter */}
