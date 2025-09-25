@@ -111,8 +111,8 @@ const StrainShowcase = () => {
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="font-druk text-5xl md:text-7xl text-foreground neon-text mb-4">
-            THREE WORLDS
+          <h2 className="font-druk text-5xl md:text-7xl text-foreground mb-4">
+            three worlds
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Discover unique flavor profiles and effects crafted for every experience
