@@ -27,7 +27,7 @@ interface Strain {
 const strains: Strain[] = [
   {
     id: 'alaskan',
-    name: 'Alaskan Thunderfuck',
+    name: 'Alazkan Thunderf*ck',
     type: 'HYBRID',
     flavor: 'This hybrid offers a perfect balance of relaxation and energy. Ideal for a smooth, well-rounded experience any time of day.',
     effects: ['Euphoric', 'Creative', 'Balanced', 'Uplifting'],
@@ -213,7 +213,7 @@ const StrainShowcase = () => {
 
               <div>
                 <h3 className="font-druk text-4xl text-foreground mb-4">
-                  Strain Main
+                  Strain Name
                 </h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {currentStrain.description}
