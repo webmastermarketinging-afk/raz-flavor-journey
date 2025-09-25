@@ -4,6 +4,9 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import alaskanThunderfuckBox from '@/assets/alaskan-thunderfuck-box.png';
 import strawberryKushBox from '@/assets/strawberry-kush-box.png';
 import alienCookiesBox from '@/assets/alien-cookies-box.png';
+import alaskanThunderfuckProducts from '@/assets/alaskan-thunderfuck-products.png';
+import strawberryKushProducts from '@/assets/strawberry-kush-products.png';
+import alienCookiesProducts from '@/assets/alien-cookies-products.png';
 
 interface Strain {
   id: string;
@@ -14,7 +17,7 @@ interface Strain {
   description: string;
   color: string;
   gradient: string;
-  image: string;
+  images: string[];
 }
 
 const strains: Strain[] = [
@@ -27,7 +30,7 @@ const strains: Strain[] = [
     description: 'Experience the perfect balance of mind and body with this legendary Alaskan strain. Known for its potent effects and unique flavor profile.',
     color: 'blue',
     gradient: 'bg-gradient-hybrid',
-    image: alaskanThunderfuckBox
+    images: [alaskanThunderfuckBox, alaskanThunderfuckProducts]
   },
   {
     id: 'alien',
@@ -38,7 +41,7 @@ const strains: Strain[] = [
     description: 'Unwind with this otherworldly indica blend. Perfect for evening relaxation and deep, restful sleep.',
     color: 'green',
     gradient: 'bg-gradient-indica',
-    image: alienCookiesBox
+    images: [alienCookiesBox, alienCookiesProducts]
   },
   {
     id: 'strawberry',
@@ -49,12 +52,13 @@ const strains: Strain[] = [
     description: 'Elevate your day with this delicious sativa. Bursting with fruity flavors and energizing effects.',
     color: 'red',
     gradient: 'bg-gradient-sativa',
-    image: strawberryKushBox
+    images: [strawberryKushBox, strawberryKushProducts]
   }
 ];
 
 const StrainShowcase = () => {
   const [activeStrain, setActiveStrain] = useState(0);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -64,14 +68,27 @@ const StrainShowcase = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-carousel functionality
+  // Auto-carousel functionality for main strains (7 seconds)
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setActiveStrain(prev => (prev + 1) % strains.length);
-    }, 2000);
+      setActiveImageIndex(0); // Reset image index when strain changes
+    }, 7000);
     return () => clearInterval(interval);
   }, [isPaused]);
+
+  // Auto-carousel functionality for images (3 seconds)
+  useEffect(() => {
+    if (isPaused) return;
+    const currentStrain = strains[activeStrain];
+    if (currentStrain.images.length > 1) {
+      const interval = setInterval(() => {
+        setActiveImageIndex(prev => (prev + 1) % currentStrain.images.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [activeStrain, isPaused]);
 
   const currentStrain = strains[activeStrain];
 
@@ -130,7 +147,7 @@ const StrainShowcase = () => {
                 <div className="product-card p-8 text-center">
                   <div className="relative mb-6">
                     <img
-                      src={currentStrain.image}
+                      src={currentStrain.images[activeImageIndex]}
                       alt={currentStrain.name}
                       className="w-full max-w-sm mx-auto rounded-xl transform rotate-3 transition-transform duration-500"
                     />
