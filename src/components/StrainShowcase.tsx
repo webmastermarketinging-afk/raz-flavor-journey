@@ -54,7 +54,7 @@ const strains: Strain[] = [
     type: 'SATIVA',
     flavor: 'This sativa delivers uplifting, energizing effects that boost creativity and focus. Perfect for daytime use and staying active.',
     effects: ['Energizing', 'Focus', 'Creative', 'Mood Boost'],
-    description: 'Sweet and fruity with a burst of strawberry flavor, this sativa delivers an uplifting, energizing high. Perfect for boosting creativity and keeping spirits bright throughout the day.'
+    description: 'Sweet and fruity with a burst of strawberry flavor, this sativa delivers an uplifting, energizing high. Perfect for boosting creativity and keeping spirits bright throughout the day.',
 ','
     color: 'red',
     gradient: 'bg-gradient-sativa',
