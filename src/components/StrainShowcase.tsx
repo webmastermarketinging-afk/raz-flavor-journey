@@ -31,8 +31,7 @@ const strains: Strain[] = [
     type: 'HYBRID',
     flavor: 'This hybrid offers a perfect balance of relaxation and energy. Ideal for a smooth, well-rounded experience any time of day.',
     effects: ['Euphoric', 'Creative', 'Balanced', 'Uplifting'],
-    description: 'Known for its bold, earthy aroma and powerful effects, this hybrid offers a balanced experience. Expect a clear, cerebral buzz paired with deep body relaxation.
-',
+    description: 'Known for its bold, earthy aroma and powerful effects, this hybrid offers a balanced experience. Expect a clear, cerebral buzz paired with deep body relaxation.',
     color: 'blue',
     gradient: 'bg-gradient-hybrid',
     images: [alaskanThunderfuckBox, alaskanThunderfuckProducts, alaskanThunderfuckSingle]
@@ -55,7 +54,6 @@ const strains: Strain[] = [
     flavor: 'This sativa delivers uplifting, energizing effects that boost creativity and focus. Perfect for daytime use and staying active.',
     effects: ['Energizing', 'Focus', 'Creative', 'Mood Boost'],
     description: 'Sweet and fruity with a burst of strawberry flavor, this sativa delivers an uplifting, energizing high. Perfect for boosting creativity and keeping spirits bright throughout the day.',
-','
     color: 'red',
     gradient: 'bg-gradient-sativa',
     images: [strawberryKushBox, strawberryKushProducts, strawberryKushSingle]
