@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
-import rainbowBackground from '@/assets/rainbow-background.png';
+import newsletterBackground from '@/assets/newsletter-background.png';
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +17,7 @@ const NewsletterSection = () => {
     <motion.section 
       className="relative py-20 overflow-hidden"
       style={{
-        backgroundImage: `url(${rainbowBackground})`,
+        backgroundImage: `url(${newsletterBackground})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -27,9 +27,7 @@ const NewsletterSection = () => {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white/80" />
-      <div className="relative z-10 container mx-auto px-4">
+      <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Half - Newsletter Content */}
           <div className="space-y-8">
