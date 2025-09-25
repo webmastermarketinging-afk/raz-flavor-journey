@@ -205,6 +205,18 @@
     z-index: 10;
   }
 
+  /* Disable hover animations within sections that opt-out */
+  .no-hover-anim .product-card,
+  .no-hover-anim .strain-item {
+    transition: none !important;
+    transform: none !important;
+  }
+  .no-hover-anim .product-card:hover,
+  .no-hover-anim .strain-item:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
   /* Neon text effects */
   .neon-text {
     text-shadow: 

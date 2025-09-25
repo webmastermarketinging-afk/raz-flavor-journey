@@ -106,7 +106,7 @@ const StrainShowcase = () => {
 
   return (
     <section 
-      className="relative py-20 overflow-hidden"
+      className="relative py-20 overflow-hidden no-hover-anim"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
