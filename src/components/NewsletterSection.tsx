@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import newsletterBackground from '@/assets/newsletter-background.png';
+import newsletterBackground from '@/assets/newsletter-background-green.png';
 const NewsletterSection = () => {
   const [email, setEmail] = useState('');
   const {
@@ -37,7 +37,8 @@ const NewsletterSection = () => {
   }} viewport={{
     once: true
   }}>
-      <div className="container mx-auto px-4">
+      <div className="absolute inset-0 bg-background/20 backdrop-blur-sm"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Half - Newsletter Content */}
           <div className="space-y-8">
