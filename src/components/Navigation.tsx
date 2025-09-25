@@ -9,11 +9,11 @@ const navigationItems = [
     href: '/'
   },
   {
-    name: 'Lab Test',
+    name: 'Lab Testing',
     href: '/lab-testing'
   },
   {
-    name: 'Contact',
+    name: 'Contact Us',
     href: '/contact'
   },
   {
