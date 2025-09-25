@@ -56,7 +56,7 @@ const Navigation = () => {
                     to={item.href}
                     className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
                       isActive
-                        ? 'bg-gradient-holographic text-transparent bg-clip-text shadow-neon'
+                        ? 'bg-gradient-holographic-dark text-transparent bg-clip-text shadow-neon'
                         : 'text-black hover:text-primary hover:shadow-glass'
                     }`}
                   >
