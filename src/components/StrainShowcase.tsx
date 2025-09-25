@@ -161,7 +161,7 @@ const StrainShowcase = () => {
                     <img
                       src={currentStrain.images[activeImageIndex]}
                       alt={currentStrain.name}
-                      className="w-full max-w-sm mx-auto rounded-xl transform rotate-3"
+                      className="w-full max-w-sm mx-auto rounded-xl"
                     />
                     <div className={`absolute -inset-4 ${currentStrain.gradient} opacity-20 rounded-xl blur-xl`} />
                     
@@ -170,13 +170,13 @@ const StrainShowcase = () => {
                       <>
                         <button
                           onClick={prevImage}
-                          className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
+                          className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground"
                         >
                           <ChevronLeft className="w-4 h-4 mx-auto" />
                         </button>
                         <button
                           onClick={nextImage}
-                          className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
+                          className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground"
                         >
                           <ChevronRight className="w-4 h-4 mx-auto" />
                         </button>
