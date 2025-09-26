@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import razHeroImage from '@/assets/banner-razz-labtesting.jpg';
+import razHeroMobile from '@/assets/banner-razz-mobile.jpg';
 import bannerImage from '@/assets/banner-01.jpg';
 
 // Form validation schema
@@ -54,10 +55,20 @@ const Contact = () => {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="relative w-full min-h-[60vh] bg-raz-black flex items-center justify-center overflow-hidden">
+        {/* Desktop Image */}
         <motion.img
           src={razHeroImage}
           alt="RAZ THC-P Diamond Infused Pre-Rolls"
-          className="w-full h-auto object-contain opacity-70"
+          className="hidden lg:block w-full h-auto object-contain opacity-70"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 0.7, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        />
+        {/* Mobile/Tablet Image */}
+        <motion.img
+          src={razHeroMobile}
+          alt="RAZ THC-P Diamond Infused Pre-Rolls"
+          className="block lg:hidden w-full h-full object-cover opacity-70"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 0.7, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}

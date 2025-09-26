@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import razHeroImage from '@/assets/banner-razz-labtesting.jpg';
+import razHeroMobile from '@/assets/banner-razz-mobile.jpg';
 
 // Validation schema
 const wholesaleFormSchema = z.object({
@@ -59,10 +60,20 @@ const WholesalePortal = () => {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative w-full min-h-[40vh] bg-raz-black flex items-center justify-center overflow-hidden">
+        {/* Desktop Image */}
         <motion.img
           src={razHeroImage}
           alt="RAZ Wholesale Portal"
-          className="w-full h-auto object-contain"
+          className="hidden lg:block w-full h-auto object-contain"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        />
+        {/* Mobile/Tablet Image */}
+        <motion.img
+          src={razHeroMobile}
+          alt="RAZ Wholesale Portal"
+          className="block lg:hidden w-full h-full object-cover"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
