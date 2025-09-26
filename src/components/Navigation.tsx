@@ -13,7 +13,7 @@ const navigationItems = [{
   href: '/contact'
 }, {
   name: 'Wholesale Portal',
-  href: '/faqs'
+  href: '/wholesale-portal'
 }];
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
