@@ -14,7 +14,7 @@ const navigationItems = [{
 }, {
   name: 'Wholesale Portal',
   href: '/wholesale-portal'
-}];
+}]; // Updated for Vercel deployment
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();

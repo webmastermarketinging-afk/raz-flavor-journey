@@ -16,7 +16,7 @@ const navigationItems = [
   },
   {
     name: 'Wholesale Portal',
-    href: '/wholesale-portal'
+    href: '/wholesale-portal' // Updated for Vercel deployment
   },
   {
     name: 'FAQs',
