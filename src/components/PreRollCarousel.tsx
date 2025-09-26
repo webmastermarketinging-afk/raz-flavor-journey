@@ -210,7 +210,7 @@ const PreRollCarousel = () => {
                 className={`hidden sm:block px-6 py-2 bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 ${currentPreRoll.glowColor} hover:shadow-lg text-sm`}
                 onClick={() => navigate('/contact')}
               >
-                View more
+                Contact Us
               </Button>
             </div>
           </div>
