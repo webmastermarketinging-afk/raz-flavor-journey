@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   Accordion,
   AccordionContent,
@@ -155,9 +156,12 @@ const FAQs = () => {
             <p className="text-muted-foreground mb-8">
               Our team is here to help with any additional questions you may have.
             </p>
-            <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-poppins-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <Link 
+              to="/contact" 
+              className="inline-block px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-poppins-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+            >
               Contact Us
-            </button>
+            </Link>
           </motion.div>
         </div>
       </section>
