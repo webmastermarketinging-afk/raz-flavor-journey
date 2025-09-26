@@ -1,28 +1,24 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Scale, Users, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import bannerImage from '@/assets/banner-01.jpg';
-const productFeatures = [{
+import alaskanTitle from '@/assets/alaskan-title.png';
+import alienCookiesLogo from '@/assets/alien-cookies-logo.png';
+import strawberryKushLogo from '@/assets/strawberry-kush-logo.png';
+const strainFeatures = [{
   id: 1,
-  value: "1.5G",
-  label: "Premium Weight",
-  description: "Perfect pre-roll size for an optimal experience",
-  icon: Scale,
+  name: "Alazkan Thunderf*ck",
+  logo: alaskanTitle,
   color: "from-blue-400 to-cyan-600"
 }, {
   id: 2,
-  value: "3",
-  label: "Unique Strains",
-  description: "Hybrid, Indica, and Sativa profiles available",
-  icon: Users,
+  name: "Alien Cookies",
+  logo: alienCookiesLogo,
   color: "from-purple-400 to-pink-600"
 }, {
   id: 3,
-  value: "100%",
-  label: "Federally Compliant",
-  description: "Legal and certified for your peace of mind",
-  icon: CheckCircle,
+  name: "Strawberry Kush",
+  logo: strawberryKushLogo,
   color: "from-green-400 to-emerald-600"
 }];
 const ProductStorytellingScroll = () => {
@@ -51,42 +47,40 @@ const ProductStorytellingScroll = () => {
               </p>
             </div>
 
-            {/* Interactive Product Features Grid */}
+            {/* Interactive Strain Features Grid */}
             <div className="grid grid-cols-1 gap-6">
-              {productFeatures.map(feature => {
-              const IconComponent = feature.icon;
-              return <div key={feature.id} className="relative">
+              {strainFeatures.map(strain => {
+                return <div key={strain.id} className="relative">
                   {/* Main Feature Card */}
-                  <div className="glass rounded-2xl p-6 relative overflow-hidden">
+                  <div className="glass rounded-2xl p-6 relative overflow-hidden cursor-pointer group hover:scale-[1.02] transition-all duration-300 hover:shadow-lg border border-white/10 hover:border-white/20">
                     {/* Background Gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-10`} />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${strain.color} opacity-10 group-hover:opacity-15 transition-opacity duration-300`} />
                     
-                    <div className="flex items-center gap-4 relative z-10">
-                      {/* Icon */}
-                      <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.color} flex items-center justify-center`}>
-                        <IconComponent className="w-8 h-8 text-white" />
+                    <div className="flex items-center gap-6 relative z-10">
+                      {/* Logo */}
+                      <div className="w-20 h-20 flex items-center justify-center">
+                        <img 
+                          src={strain.logo} 
+                          alt={strain.name} 
+                          className="w-full h-full object-contain"
+                        />
                       </div>
 
                       <div className="flex-1">
-                        {/* Feature Value and Label */}
-                        <div className="flex items-baseline gap-2 mb-1">
-                          <span className="font-druk text-3xl text-foreground">
-                            {feature.value}
-                          </span>
-                          <span className="font-poppins-bold text-lg text-foreground">
-                            {feature.label}
-                          </span>
-                        </div>
+                        {/* Strain Name */}
+                        <h3 className="font-druk text-2xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                          {strain.name}
+                        </h3>
                         
-                        {/* Feature Description */}
-                        <p className="text-muted-foreground text-sm">
-                          {feature.description}
+                        {/* View Lab Reports Text */}
+                        <p className="text-muted-foreground text-base group-hover:text-foreground transition-colors duration-300 font-medium">
+                          View Lab Reports
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>;
-            })}
+              })}
             </div>
 
             {/* Call to Action */}
