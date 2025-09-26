@@ -203,7 +203,7 @@ const StrainShowcase = () => {
                   {currentStrain.effects.map((effect, index) => (
                     <span
                       key={index}
-                      className="px-4 py-2 glass rounded-full text-foreground font-poppins-bold text-sm"
+                      className="px-4 py-2 rounded-full text-foreground font-poppins-bold text-sm bg-white/5 backdrop-blur-sm border border-white/10"
                     >
                       {effect}
                     </span>

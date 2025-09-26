@@ -62,15 +62,15 @@ const NewsletterSection = () => {
             {/* Benefits */}
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <div className="w-2 h-2 bg-primary rounded-full" />
+                <div className="w-2 h-2 bg-red-500 rounded-full" />
                 <span>Exclusive product launches</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <div className="w-2 h-2 bg-secondary rounded-full" />
+                <div className="w-2 h-2 bg-red-500 rounded-full" />
                 <span>Special member discounts</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <div className="w-2 h-2 bg-accent rounded-full" />
+                <div className="w-2 h-2 bg-red-500 rounded-full" />
                 <span>Educational content & tips</span>
               </div>
             </div>

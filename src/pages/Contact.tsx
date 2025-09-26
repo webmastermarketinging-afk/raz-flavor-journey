@@ -99,7 +99,7 @@ const Contact = () => {
               viewport={{ once: true }}
             >
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Have questions about our products or need more information? Get in touch with our team and we'll be happy to help.
+                Have questions? Reach our team by filling out the form below.
               </p>
 
               {/* Contact Form */}
