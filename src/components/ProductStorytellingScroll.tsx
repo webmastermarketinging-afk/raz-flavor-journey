@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import bannerImage from '@/assets/banner-01.jpg';
+import razProducts from '@/assets/raz-products-new.png';
 import alaskanTitle from '@/assets/alaskan-title.png';
 import alienCookiesLogo from '@/assets/alien-cookies-logo.png';
 import strawberryKushLogo from '@/assets/strawberry-kush-logo.png';
@@ -106,7 +106,7 @@ const ProductStorytellingScroll = () => {
           {/* Right Half - Image */}
           <div className="relative">
             <div className="relative rounded-3xl overflow-hidden">
-              <img src={bannerImage} alt="RAZ Pre-roll Products" className="w-full h-auto object-cover" />
+              <img src={razProducts} alt="RAZ Pre-roll Products" className="w-full h-auto object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
           </div>
