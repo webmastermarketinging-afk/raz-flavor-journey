@@ -1,5 +1,5 @@
 const features = [
-  'Florida Cannabinoids',
+  'Florida Compliant',
   'Child Proof Packaging',
   'Legally verified & approved',
 ];
