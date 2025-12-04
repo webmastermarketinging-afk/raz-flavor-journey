@@ -11,7 +11,9 @@ import alienCookiesProducts from '@/assets/alien-cookies-products.png';
 import alaskanThunderfuckSingle from '@/assets/alaskan-thunderfuck-single.jpg';
 import strawberryKushSingle from '@/assets/strawberry-kush-single.jpg';
 import alienCookiesSingle from '@/assets/alien-cookies-single.jpg';
-
+import thcp2gSingle from '@/assets/2g-thcp-single.jpg';
+import thcp2gProducts from '@/assets/2g-thcp-products.jpg';
+import thcp2gBox from '@/assets/2g-thcp-box.jpg';
 interface ProductCategory {
   id: string;
   name: string;
@@ -32,7 +34,7 @@ const productCategories: ProductCategory[] = [
     effects: ['Potent', 'Flavorful', 'Long-Lasting', 'Body and Mind Elevation'],
     strainName: 'Choose from six strains, each offering its own flavor and effect. Perfect for users who want a strong, smooth, terpene-rich 2g preroll experience.',
     gradient: 'bg-gradient-hybrid',
-    images: []
+    images: [thcp2gSingle, thcp2gProducts, thcp2gBox]
   },
   {
     id: '2g-thca',
