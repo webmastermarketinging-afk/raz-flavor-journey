@@ -46,6 +46,9 @@
     --gradient-hybrid: linear-gradient(135deg, hsl(200 98% 55%) 0%, hsl(220 100% 65%) 100%);
     --gradient-indica: linear-gradient(135deg, hsl(120 60% 45%) 0%, hsl(150 70% 50%) 100%);
     --gradient-sativa: linear-gradient(135deg, hsl(var(--raz-red)) 0%, hsl(15 85% 65%) 100%);
+    --gradient-thcp: linear-gradient(135deg, hsl(280 70% 45%) 0%, hsl(300 60% 55%) 100%);
+    --gradient-thca: linear-gradient(135deg, hsl(0 65% 40%) 0%, hsl(15 50% 35%) 100%);
+    --gradient-15g: linear-gradient(135deg, hsl(120 60% 40%) 0%, hsl(140 55% 45%) 100%);
     --gradient-glass: linear-gradient(135deg, rgba(200, 236, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
     --gradient-holographic: url('/src/assets/holographic-texture.png'), linear-gradient(135deg, 
       hsla(270, 70%, 80%, 0.9) 0%, 

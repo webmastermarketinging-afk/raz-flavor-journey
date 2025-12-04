@@ -14,6 +14,9 @@ import alienCookiesSingle from '@/assets/alien-cookies-single.jpg';
 import thcp2gSingle from '@/assets/2g-thcp-single.jpg';
 import thcp2gProducts from '@/assets/2g-thcp-products.jpg';
 import thcp2gBox from '@/assets/2g-thcp-box.jpg';
+import thca2gSingle from '@/assets/2g-thca-single.jpg';
+import thca2gProducts from '@/assets/2g-thca-products.jpg';
+import thca2gBox from '@/assets/2g-thca-box.jpg';
 interface ProductCategory {
   id: string;
   name: string;
@@ -33,7 +36,7 @@ const productCategories: ProductCategory[] = [
     strainType: 'Available in six strains, including sativa, hybrid, and indica options. Each preroll is infused with THCP diamonds and bold terpene profiles.',
     effects: ['Potent', 'Flavorful', 'Long-Lasting', 'Body and Mind Elevation'],
     strainName: 'Choose from six strains, each offering its own flavor and effect. Perfect for users who want a strong, smooth, terpene-rich 2g preroll experience.',
-    gradient: 'bg-gradient-hybrid',
+    gradient: 'bg-gradient-thcp',
     images: [thcp2gSingle, thcp2gProducts, thcp2gBox]
   },
   {
@@ -43,8 +46,8 @@ const productCategories: ProductCategory[] = [
     strainType: 'Offered in six strain varieties, including uplifting sativas, balanced hybrids, and relaxing indicas. Infused with THCA diamonds for a clean, powerful effect.',
     effects: ['Clear', 'Strong', 'Aromatic', 'Balanced Body and Mind'],
     strainName: 'Six strains available, each with unique terpene notes and effects. Ideal for customers who want flavor, purity, and a potent THCA preroll.',
-    gradient: 'bg-gradient-indica',
-    images: []
+    gradient: 'bg-gradient-thca',
+    images: [thca2gSingle, thca2gProducts, thca2gBox]
   },
   {
     id: '1.5g-thcp',
@@ -53,7 +56,7 @@ const productCategories: ProductCategory[] = [
     strainType: 'A curated set of three strains: one sativa, one hybrid, and one indica. Each preroll is infused with THCP diamonds and rich terpenes.',
     effects: ['Sativa: Focused and Energizing', 'Hybrid: Balanced and Smooth', 'Indica: Calming and Relaxing'],
     strainName: 'Three signature strains chosen for standout flavor and consistent effects. A simple, premium lineup for customers who want reliable 1.5g THCP prerolls.',
-    gradient: 'bg-gradient-sativa',
+    gradient: 'bg-gradient-15g',
     images: [alaskanThunderfuckBox, alienCookiesBox, strawberryKushBox, alaskanThunderfuckProducts, alienCookiesProducts, strawberryKushProducts, alaskanThunderfuckSingle, alienCookiesSingle, strawberryKushSingle]
   }
 ];
