@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import heroSlide1 from '@/assets/hero-slide-1.png';
 import heroSlide2 from '@/assets/hero-slide-2.png';
 import razHeroBanner from '@/assets/banner-raz-new.png';
@@ -26,18 +26,19 @@ const HeroSection = () => {
     <section className="relative w-full bg-raz-black flex items-center justify-center overflow-hidden">
       {/* Desktop Carousel */}
       <div className="hidden lg:block w-full relative">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={slides[currentSlide].id}
-            src={slides[currentSlide].src}
-            alt={slides[currentSlide].alt}
-            className="w-full h-auto object-contain"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          />
-        </AnimatePresence>
+        <div className="relative w-full">
+          {slides.map((slide, index) => (
+            <motion.img
+              key={slide.id}
+              src={slide.src}
+              alt={slide.alt}
+              className={`w-full h-auto object-contain ${index === 0 ? 'relative' : 'absolute top-0 left-0'}`}
+              initial={false}
+              animate={{ opacity: currentSlide === index ? 1 : 0 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            />
+          ))}
+        </div>
         
         {/* Slide Indicators */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3">
