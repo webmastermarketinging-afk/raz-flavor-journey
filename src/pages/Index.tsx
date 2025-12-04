@@ -1,10 +1,10 @@
-import HeroSection from '@/components/HeroSection';
-import StrainShowcase from '@/components/StrainShowcase'; 
-import InfiniteScroll from '@/components/InfiniteScroll';
-import ProductStorytellingScroll from '@/components/ProductStorytellingScroll';
-import ComplianceSection from '@/components/ComplianceSection';
-import PreRollCarousel from '@/components/PreRollCarousel';
-import NewsletterSection from '@/components/NewsletterSection';
+import HeroSection from "@/components/HeroSection";
+import StrainShowcase from "@/components/StrainShowcase";
+import InfiniteScroll from "@/components/InfiniteScroll";
+import ProductStorytellingScroll from "@/components/ProductStorytellingScroll";
+import ComplianceSection from "@/components/ComplianceSection";
+import PreRollCarousel from "@/components/PreRollCarousel";
+import NewsletterSection from "@/components/NewsletterSection";
 
 const Index = () => {
   return (
@@ -12,7 +12,6 @@ const Index = () => {
       <HeroSection />
       <InfiniteScroll />
       <StrainShowcase />
-      <ProductStorytellingScroll />
       <PreRollCarousel />
       <NewsletterSection />
     </main>
