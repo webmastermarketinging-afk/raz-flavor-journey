@@ -12,92 +12,93 @@ import alaskanThunderfuckSingle from '@/assets/alaskan-thunderfuck-single.jpg';
 import strawberryKushSingle from '@/assets/strawberry-kush-single.jpg';
 import alienCookiesSingle from '@/assets/alien-cookies-single.jpg';
 
-interface Strain {
+interface ProductCategory {
   id: string;
   name: string;
-  type: 'HYBRID' | 'INDICA' | 'SATIVA';
-  flavor: string;
+  tabLabel: string;
+  strainType: string;
   effects: string[];
-  description: string;
-  color: string;
+  strainName: string;
   gradient: string;
   images: string[];
 }
 
-const strains: Strain[] = [
+const productCategories: ProductCategory[] = [
   {
-    id: 'alaskan',
-    name: 'Alazkan Thunderf*ck',
-    type: 'HYBRID',
-    flavor: 'This hybrid offers a perfect balance of relaxation and energy. Ideal for a smooth, well-rounded experience any time of day.',
-    effects: ['Euphoric', 'Creative', 'Balanced', 'Uplifting'],
-    description: 'Alazkan Thunderf*ck is known for its bold, earthy aroma and powerful effects. This hybrid offers a perfect balance with a clear, cerebral buzz and deep body relaxation.',
-    color: 'blue',
+    id: '2g-thcp',
+    name: '2G THCP',
+    tabLabel: '2G THCP',
+    strainType: 'Available in six strains, including sativa, hybrid, and indica options. Each preroll is infused with THCP diamonds and bold terpene profiles.',
+    effects: ['Potent', 'Flavorful', 'Long-Lasting', 'Body and Mind Elevation'],
+    strainName: 'Choose from six strains, each offering its own flavor and effect. Perfect for users who want a strong, smooth, terpene-rich 2g preroll experience.',
     gradient: 'bg-gradient-hybrid',
-    images: [alaskanThunderfuckBox, alaskanThunderfuckProducts, alaskanThunderfuckSingle]
+    images: []
   },
   {
-    id: 'alien',
-    name: 'Alien Cookies',
-    type: 'INDICA',
-    flavor: 'This indica provides deep relaxation and calm for both body and mind. Best for unwinding and getting a restful night’s sleep.',
-    effects: ['Relaxing', 'Sedating', 'Body High', 'Sleep Aid'],
-    description: 'Alien Cookies brings rich, sweet notes and a smooth smoke. This indica delivers deep calm and full-body relaxation, perfect for unwinding and ending the day peacefully.',
-    color: 'green',
+    id: '2g-thca',
+    name: '2G THCA',
+    tabLabel: '2G THCA',
+    strainType: 'Offered in six strain varieties, including uplifting sativas, balanced hybrids, and relaxing indicas. Infused with THCA diamonds for a clean, powerful effect.',
+    effects: ['Clear', 'Strong', 'Aromatic', 'Balanced Body and Mind'],
+    strainName: 'Six strains available, each with unique terpene notes and effects. Ideal for customers who want flavor, purity, and a potent THCA preroll.',
     gradient: 'bg-gradient-indica',
-    images: [alienCookiesBox, alienCookiesProducts, alienCookiesSingle]
+    images: []
   },
   {
-    id: 'strawberry',
-    name: 'Strawberry Kush',
-    type: 'SATIVA',
-    flavor: 'This sativa delivers uplifting, energizing effects that boost creativity and focus. Perfect for daytime use and staying active.',
-    effects: ['Energizing', 'Focus', 'Creative', 'Mood Boost'],
-    description: 'Strawberry Kush delivers a sweet, fruity flavor with a burst of strawberry in every puff. This sativa provides an uplifting, energizing high that sparks creativity and keeps your vibe bright all day.',
-    color: 'red',
+    id: '1.5g-thcp',
+    name: '1.5G THCP',
+    tabLabel: '1.5G THCP',
+    strainType: 'A curated set of three strains: one sativa, one hybrid, and one indica. Each preroll is infused with THCP diamonds and rich terpenes.',
+    effects: ['Sativa: Focused and Energizing', 'Hybrid: Balanced and Smooth', 'Indica: Calming and Relaxing'],
+    strainName: 'Three signature strains chosen for standout flavor and consistent effects. A simple, premium lineup for customers who want reliable 1.5g THCP prerolls.',
     gradient: 'bg-gradient-sativa',
-    images: [strawberryKushBox, strawberryKushProducts, strawberryKushSingle]
+    images: [alaskanThunderfuckBox, alienCookiesBox, strawberryKushBox, alaskanThunderfuckProducts, alienCookiesProducts, strawberryKushProducts, alaskanThunderfuckSingle, alienCookiesSingle, strawberryKushSingle]
   }
 ];
 
 const StrainShowcase = () => {
   const navigate = useNavigate();
-  const [activeStrain, setActiveStrain] = useState(0);
+  const [activeCategory, setActiveCategory] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-carousel functionality for main strains (7 seconds)
+  // Auto-carousel functionality for main categories (7 seconds)
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
-      setActiveStrain(prev => (prev + 1) % strains.length);
-      setActiveImageIndex(0); // Reset image index when strain changes
+      setActiveCategory(prev => (prev + 1) % productCategories.length);
+      setActiveImageIndex(0);
     }, 7000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
-  // Auto-carousel functionality for images (3 seconds) - no pause on hover
+  // Auto-carousel functionality for images (3 seconds) - only for 1.5G THCP
   useEffect(() => {
-    const currentStrain = strains[activeStrain];
-    if (currentStrain.images.length > 1) {
+    const currentCategory = productCategories[activeCategory];
+    if (currentCategory.images.length > 1) {
       const interval = setInterval(() => {
-        setActiveImageIndex(prev => (prev + 1) % currentStrain.images.length);
+        setActiveImageIndex(prev => (prev + 1) % currentCategory.images.length);
       }, 3000);
       return () => clearInterval(interval);
     }
-  }, [activeStrain]);
+  }, [activeCategory]);
 
   const nextImage = () => {
-    const currentStrain = strains[activeStrain];
-    setActiveImageIndex(prev => (prev + 1) % currentStrain.images.length);
+    const currentCategory = productCategories[activeCategory];
+    if (currentCategory.images.length > 0) {
+      setActiveImageIndex(prev => (prev + 1) % currentCategory.images.length);
+    }
   };
 
   const prevImage = () => {
-    const currentStrain = strains[activeStrain];
-    setActiveImageIndex(prev => (prev - 1 + currentStrain.images.length) % currentStrain.images.length);
+    const currentCategory = productCategories[activeCategory];
+    if (currentCategory.images.length > 0) {
+      setActiveImageIndex(prev => (prev - 1 + currentCategory.images.length) % currentCategory.images.length);
+    }
   };
 
-  const currentStrain = strains[activeStrain];
+  const currentCategory = productCategories[activeCategory];
+  const hasImages = currentCategory.images.length > 0;
 
   return (
     <section 
@@ -106,7 +107,7 @@ const StrainShowcase = () => {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Background with gradient */}
-      <div className={`absolute inset-0 ${currentStrain.gradient} opacity-10`} />
+      <div className={`absolute inset-0 ${currentCategory.gradient} opacity-10`} />
 
       <div className="container mx-auto px-4">
         {/* Section header */}
@@ -122,87 +123,103 @@ const StrainShowcase = () => {
               Something To Remember
             </p>
             <p className="font-poppins-bold text-xl md:text-2xl text-foreground mt-3">
-              Explore Our Strains
+              Explore Our Products
             </p>
           </div>
         </div>
 
-        {/* Interactive strain selector */}
+        {/* Interactive category selector */}
         <div className="flex justify-center mb-12">
           <div className="flex gap-4 p-2 glass rounded-full">
-            {strains.map((strain, index) => (
+            {productCategories.map((category, index) => (
               <button
-                key={strain.id}
-                onClick={() => setActiveStrain(index)}
+                key={category.id}
+                onClick={() => {
+                  setActiveCategory(index);
+                  setActiveImageIndex(0);
+                }}
                 className={`px-6 py-3 rounded-full font-poppins-bold text-sm ${
-                  activeStrain === index
-                    ? `${strain.gradient} text-white shadow-neon`
+                  activeCategory === index
+                    ? `${category.gradient} text-white shadow-neon`
                     : 'text-muted-foreground'
                 }`}
               >
-                {strain.type}
+                {category.tabLabel}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Main strain showcase */}
+        {/* Main category showcase */}
         <div className="strain-showcase">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             {/* Product visualization */}
             <div className="relative">
               <div className="strain-item">
                 <div className="product-card p-8 text-center">
-                  <div className="relative mb-6">
-                    <img
-                      src={currentStrain.images[activeImageIndex]}
-                      alt={currentStrain.name}
-                      className="w-full max-w-sm mx-auto rounded-xl"
-                    />
-                    <div className={`absolute -inset-4 ${currentStrain.gradient} opacity-20 rounded-xl blur-xl`} />
-                    
-                    {/* Navigation arrows for images */}
-                    {currentStrain.images.length > 1 && (
-                      <>
-                        <button
-                          onClick={prevImage}
-                          className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground"
-                        >
-                          <ChevronLeft className="w-4 h-4 mx-auto" />
-                        </button>
-                        <button
-                          onClick={nextImage}
-                          className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground"
-                        >
-                          <ChevronRight className="w-4 h-4 mx-auto" />
-                        </button>
-                      </>
-                    )}
-                  </div>
+                  {hasImages ? (
+                    <div className="relative mb-6">
+                      <img
+                        src={currentCategory.images[activeImageIndex]}
+                        alt={currentCategory.name}
+                        className="w-full max-w-sm mx-auto rounded-xl"
+                      />
+                      <div className={`absolute -inset-4 ${currentCategory.gradient} opacity-20 rounded-xl blur-xl`} />
+                      
+                      {/* Navigation arrows for images */}
+                      {currentCategory.images.length > 1 && (
+                        <>
+                          <button
+                            onClick={prevImage}
+                            className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground"
+                          >
+                            <ChevronLeft className="w-4 h-4 mx-auto" />
+                          </button>
+                          <button
+                            onClick={nextImage}
+                            className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground"
+                          >
+                            <ChevronRight className="w-4 h-4 mx-auto" />
+                          </button>
+                        </>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="relative mb-6">
+                      <div className={`w-full max-w-sm mx-auto h-64 rounded-xl ${currentCategory.gradient} opacity-30 flex items-center justify-center`}>
+                        <span className="font-druk text-4xl text-white/50">Coming Soon</span>
+                      </div>
+                      <div className={`absolute -inset-4 ${currentCategory.gradient} opacity-20 rounded-xl blur-xl`} />
+                    </div>
+                  )}
                   
-                  <div className={`inline-block px-4 py-2 ${currentStrain.gradient} text-white rounded-full font-poppins-bold text-sm mb-4`}>
-                    {currentStrain.type}
+                  <div className={`inline-block px-4 py-2 ${currentCategory.gradient} text-white rounded-full font-poppins-bold text-sm mb-4`}>
+                    {currentCategory.name}
                   </div>
                   
                   <h3 className="font-druk text-3xl text-foreground mb-2">
-                    {currentStrain.name}
+                    {currentCategory.name}
                   </h3>
                   
                   <div className="text-center">
-                    <span className="text-lg font-poppins-bold text-foreground">1.5G THC-P Diamond infused Preroll</span>
+                    <span className="text-lg font-poppins-bold text-foreground">
+                      {currentCategory.id === '1.5g-thcp' ? 'THC-P Diamond Infused Preroll' : 
+                       currentCategory.id === '2g-thcp' ? 'THC-P Diamond Infused Preroll' : 
+                       'THC-A Diamond Infused Preroll'}
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Strain details */}
+            {/* Category details */}
             <div className="space-y-8">
               <div>
                 <h3 className="font-druk text-4xl text-foreground mb-4">
                   Strain Type
                 </h3>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  {currentStrain.flavor}
+                  {currentCategory.strainType}
                 </p>
               </div>
 
@@ -211,7 +228,7 @@ const StrainShowcase = () => {
                   Effects
                 </h3>
                 <div className="flex flex-wrap gap-3">
-                  {currentStrain.effects.map((effect, index) => (
+                  {currentCategory.effects.map((effect, index) => (
                     <span
                       key={index}
                       className="px-4 py-2 rounded-full text-foreground font-poppins-bold text-sm bg-white/20 backdrop-blur-md border border-gray-200 shadow-md"
@@ -227,12 +244,12 @@ const StrainShowcase = () => {
                   Strain Name
                 </h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  {currentStrain.description}
+                  {currentCategory.strainName}
                 </p>
               </div>
 
               <button 
-                className={`px-8 py-4 ${currentStrain.gradient} text-white font-poppins-bold text-lg rounded-2xl`}
+                className={`px-8 py-4 ${currentCategory.gradient} text-white font-poppins-bold text-lg rounded-2xl`}
                 onClick={() => navigate('/faqs')}
               >
                 Learn More
@@ -243,12 +260,12 @@ const StrainShowcase = () => {
 
         {/* Floating indicators */}
         <div className="flex justify-center mt-12 gap-2">
-          {strains.map((_, index) => (
+          {productCategories.map((_, index) => (
             <div
               key={index}
               className={`w-3 h-3 rounded-full ${
-                activeStrain === index
-                  ? `${strains[index].gradient} shadow-neon`
+                activeCategory === index
+                  ? `${productCategories[index].gradient} shadow-neon`
                   : 'bg-muted'
               }`}
             />
