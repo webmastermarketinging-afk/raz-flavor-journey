@@ -203,12 +203,14 @@ const StrainShowcase = () => {
                   </div>
                   
                   <h3 className="font-druk text-3xl text-foreground mb-2">
-                    {currentCategory.name}
+                    {currentCategory.id === '1.5g-thcp' ? '3 Different Strains' : '6 Different Strains'}
                   </h3>
                   
                   <div className="text-center">
                     <span className="text-lg font-poppins-bold text-foreground">
-                      {currentCategory.id === '1.5g-thcp' ? '3 Different Strains' : '6 Different Strains'}
+                      {currentCategory.id === '1.5g-thcp' ? 'THC-P Diamond Infused Preroll' : 
+                       currentCategory.id === '2g-thcp' ? 'THC-P Diamond Infused Preroll' : 
+                       'THC-A Diamond Infused Preroll'}
                     </span>
                   </div>
                 </div>
