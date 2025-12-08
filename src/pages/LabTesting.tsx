@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import razHeroImage from '@/assets/banner-razz-labtesting.jpg';
 import razHeroMobile from '@/assets/banner-razz-mobile.jpg';
+// THCP 1.5g Products
 import alaskanThunderfuckImage from '@/assets/alaskan-thunderfuck.jpg';
 import alaskanThunderfuckSingle from '@/assets/alaskan-thunderfuck-single.jpg';
 import alaskanThunderfuckProducts from '@/assets/alaskan-thunderfuck-products.png';
@@ -12,8 +13,20 @@ import alienCookiesProducts from '@/assets/alien-cookies-products.png';
 import strawberryKushImage from '@/assets/strawberry-kush.jpg';
 import strawberryKushSingle from '@/assets/strawberry-kush-single.jpg';
 import strawberryKushProducts from '@/assets/strawberry-kush-products.png';
+// THCP 2g Products
+import thcp2gNightCrawler from '@/assets/thcp-2g-night-crawler.png';
+import thcp2gCactusJack from '@/assets/thcp-2g-cactus-jack.png';
+import thcp2gGeorgiaPie from '@/assets/thcp-2g-georgia-pie.png';
+import thcp2gMiamiMintz from '@/assets/thcp-2g-miami-mintz.png';
+import thcp2gDayCrawler from '@/assets/thcp-2g-day-crawler.png';
+import thcp2gForbiddenFruit from '@/assets/thcp-2g-forbidden-fruit.png';
+// THCA 2g Products
+import thca2gEmeraldCity from '@/assets/thca-2g-emerald-city.png';
+import thca2gRubySlippers from '@/assets/thca-2g-ruby-slippers.png';
+import thca2gNorthernLights from '@/assets/thca-2g-northern-lights.png';
+import thca2gBlueDream from '@/assets/thca-2g-blue-dream.png';
 
-const products = [
+const productsTHCP15g = [
   {
     id: 1,
     name: "Alaskan Thunderfuck",
@@ -40,6 +53,92 @@ const products = [
   }
 ];
 
+const productsTHCP2g = [
+  {
+    id: 1,
+    name: "Night Crawler",
+    type: "Indica",
+    images: [thcp2gNightCrawler],
+    gradient: "from-purple-500 to-indigo-600",
+    pdfUrl: "#"
+  },
+  {
+    id: 2,
+    name: "Cactus Jack",
+    type: "Sativa",
+    images: [thcp2gCactusJack],
+    gradient: "from-green-500 to-emerald-600",
+    pdfUrl: "#"
+  },
+  {
+    id: 3,
+    name: "Georgia Pie",
+    type: "Hybrid",
+    images: [thcp2gGeorgiaPie],
+    gradient: "from-amber-500 to-yellow-600",
+    pdfUrl: "#"
+  },
+  {
+    id: 4,
+    name: "Miami Mintz",
+    type: "Hybrid",
+    images: [thcp2gMiamiMintz],
+    gradient: "from-blue-400 to-cyan-500",
+    pdfUrl: "#"
+  },
+  {
+    id: 5,
+    name: "Day Crawler",
+    type: "Sativa",
+    images: [thcp2gDayCrawler],
+    gradient: "from-gray-500 to-slate-600",
+    pdfUrl: "#"
+  },
+  {
+    id: 6,
+    name: "Forbidden Fruit",
+    type: "Indica",
+    images: [thcp2gForbiddenFruit],
+    gradient: "from-purple-400 to-pink-500",
+    pdfUrl: "#"
+  }
+];
+
+const productsTHCA2g = [
+  {
+    id: 1,
+    name: "Emerald City",
+    type: "Sativa",
+    images: [thca2gEmeraldCity],
+    gradient: "from-emerald-500 to-green-600",
+    pdfUrl: "#"
+  },
+  {
+    id: 2,
+    name: "Ruby Slippers",
+    type: "Sativa",
+    images: [thca2gRubySlippers],
+    gradient: "from-red-500 to-rose-600",
+    pdfUrl: "#"
+  },
+  {
+    id: 3,
+    name: "Northern Lights",
+    type: "Indica",
+    images: [thca2gNorthernLights],
+    gradient: "from-pink-500 to-purple-600",
+    pdfUrl: "#"
+  },
+  {
+    id: 4,
+    name: "Blue Dream",
+    type: "Indica",
+    images: [thca2gBlueDream],
+    gradient: "from-blue-500 to-indigo-600",
+    pdfUrl: "#"
+  }
+];
+
 const ProductCarousel = ({ product }: { product: any }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -50,6 +149,8 @@ const ProductCarousel = ({ product }: { product: any }) => {
   const prevImage = () => {
     setCurrentIndex((prev) => (prev - 1 + product.images.length) % product.images.length);
   };
+
+  const hasMultipleImages = product.images.length > 1;
 
   return (
     <motion.div
@@ -70,32 +171,36 @@ const ProductCarousel = ({ product }: { product: any }) => {
           <div className={`absolute inset-0 bg-gradient-to-t ${product.gradient} opacity-20`} />
         </div>
         
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevImage}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <ChevronLeft className="w-5 h-5 text-white" />
-        </button>
-        <button
-          onClick={nextImage}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <ChevronRight className="w-5 h-5 text-white" />
-        </button>
-
-        {/* Dots Indicator */}
-        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {product.images.map((_: any, index: number) => (
+        {/* Navigation Arrows - Only show if multiple images */}
+        {hasMultipleImages && (
+          <>
             <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'bg-white' : 'bg-white/50'
-              }`}
-            />
-          ))}
-        </div>
+              onClick={prevImage}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <ChevronLeft className="w-5 h-5 text-white" />
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <ChevronRight className="w-5 h-5 text-white" />
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
+              {product.images.map((_: any, index: number) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex ? 'bg-white' : 'bg-white/50'
+                  }`}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
 
       {/* Product Info */}
@@ -114,6 +219,34 @@ const ProductCarousel = ({ product }: { product: any }) => {
     </motion.div>
   );
 };
+
+interface ProductSectionProps {
+  title: string;
+  subtitle: string;
+  products: any[];
+}
+
+const ProductSection = ({ title, subtitle, products }: ProductSectionProps) => (
+  <section className="py-16 bg-gradient-to-b from-background to-background/50">
+    <div className="container mx-auto px-4">
+      <motion.div
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="font-druk text-4xl lg:text-5xl text-foreground mb-2">{title}</h2>
+        <p className="text-muted-foreground text-lg">{subtitle}</p>
+      </motion.div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {products.map((product) => (
+          <ProductCarousel key={product.id} product={product} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 const LabTesting = () => {
   return (
@@ -167,16 +300,26 @@ const LabTesting = () => {
         </div>
       </section>
 
-      {/* Products Section */}
-      <section className="py-20 bg-gradient-to-b from-background to-background/50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {products.map((product) => (
-              <ProductCarousel key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* THCP 1.5g Products Section */}
+      <ProductSection 
+        title="THCP 1.5g" 
+        subtitle="THC-P Diamond Infused Pre-Rolls" 
+        products={productsTHCP15g} 
+      />
+
+      {/* THCP 2g Products Section */}
+      <ProductSection 
+        title="THCP 2g" 
+        subtitle="THC-P Diamond Infused Pre-Rolls - 2 Grams Each" 
+        products={productsTHCP2g} 
+      />
+
+      {/* THCA 2g Products Section */}
+      <ProductSection 
+        title="THCA 2g" 
+        subtitle="THC-A Diamond Infused Pre-Rolls - 2 Grams Each" 
+        products={productsTHCA2g} 
+      />
     </main>
   );
 };
