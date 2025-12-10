@@ -11,12 +11,14 @@ const navigationItems = [
 ];
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // menú móvil
+  const [isProductsOpen, setIsProductsOpen] = useState(false); // dropdown Products (desktop)
   const location = useLocation();
 
   useEffect(() => {
-    // Cierra el menú móvil al cambiar de ruta
+    // Cierra menús al cambiar de ruta
     setIsOpen(false);
+    setIsProductsOpen(false);
   }, [location]);
 
   const isActive = (href: string) => location.pathname === href;
@@ -49,17 +51,24 @@ const Navigation = () => {
                 Home
               </Link>
 
-              {/* Products dropdown */}
-              <div className="relative group">
+              {/* Products dropdown (desktop) */}
+              <div className="relative">
                 <button
                   type="button"
+                  onClick={() => setIsProductsOpen((prev) => !prev)}
                   className="px-4 py-2 rounded-full font-poppins-bold text-sm text-black hover:text-primary hover:shadow-glass transition-all duration-300 flex items-center gap-1"
                 >
                   Products
                   <span className="text-xs">▾</span>
                 </button>
 
-                <div className="absolute left-0 mt-2 w-56 rounded-2xl bg-white shadow-lg border border-black/5 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-200 z-50">
+                <div
+                  className={`absolute left-0 mt-2 w-56 rounded-2xl bg-white shadow-lg border border-black/5 transition-opacity duration-200 z-50 ${
+                    isProductsOpen
+                      ? "opacity-100 pointer-events-auto"
+                      : "opacity-0 pointer-events-none"
+                  }`}
+                >
                   <Link
                     to="/lab-testing#thcp-15g"
                     className="block px-4 py-3 text-sm rounded-t-2xl hover:bg-black/5 transition-colors"
@@ -156,7 +165,7 @@ const Navigation = () => {
           }`}
         >
           <div className="space-y-4">
-            {/* Products block in mobile */}
+            {/* Bloque Products en mobile */}
             <div className="mb-4">
               <p className="font-poppins-bold text-lg text-foreground mb-2">
                 Products
@@ -206,7 +215,6 @@ const Navigation = () => {
             })}
           </div>
 
-          {/* Mobile CTA (si quieres agregar algo aquí después) */}
           <div className="mt-6 pt-6 border-t border-white/10" />
         </div>
       </div>
