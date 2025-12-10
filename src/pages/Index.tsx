@@ -1,7 +1,9 @@
 import PreRollCarousel from "@/components/PreRollCarousel";
-import StrainShowcase from "@/components/StrainShowcase";
 import InfiniteScroll from "@/components/InfiniteScroll";
-// ❌ Eliminamos la importación del slider
+// ❌ Quitamos StrainShowcase del home
+// import StrainShowcase from "@/components/StrainShowcase";
+
+// Si quieres reutilizarlo en otra página, lo importas allí, no aquí.
 // import ProductStorytellingScroll from "@/components/ProductStorytellingScroll";
 import ComplianceSection from "@/components/ComplianceSection";
 import NewsletterSection from "@/components/NewsletterSection";
@@ -13,9 +15,9 @@ const Index = () => {
       <PreRollCarousel />
 
       <InfiniteScroll />
-      <StrainShowcase />
 
-      {/* Secciones opcionales */}
+      {/* Secciones opcionales que ya NO se muestran en el home */}
+      {/* <StrainShowcase /> */}
       {/* <ProductStorytellingScroll /> */}
       {/* <ComplianceSection /> */}
 
