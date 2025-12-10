@@ -1,30 +1,32 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import razHeroImage from '@/assets/banner-razz-labtesting.jpg';
-import razHeroMobile from '@/assets/banner-razz-mobile.jpg';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLocation } from "react-router-dom";
+
+import razHeroImage from "@/assets/banner-razz-labtesting.jpg";
+import razHeroMobile from "@/assets/banner-razz-mobile.jpg";
 // THCP 1.5g Products
-import alaskanThunderfuckImage from '@/assets/alaskan-thunderfuck.jpg';
-import alaskanThunderfuckSingle from '@/assets/alaskan-thunderfuck-single.jpg';
-import alaskanThunderfuckProducts from '@/assets/alaskan-thunderfuck-products.png';
-import alienCookiesImage from '@/assets/alien-cookies.jpg';
-import alienCookiesSingle from '@/assets/alien-cookies-single.jpg';
-import alienCookiesProducts from '@/assets/alien-cookies-products.png';
-import strawberryKushImage from '@/assets/strawberry-kush.jpg';
-import strawberryKushSingle from '@/assets/strawberry-kush-single.jpg';
-import strawberryKushProducts from '@/assets/strawberry-kush-products.png';
+import alaskanThunderfuckImage from "@/assets/alaskan-thunderfuck.jpg";
+import alaskanThunderfuckSingle from "@/assets/alaskan-thunderfuck-single.jpg";
+import alaskanThunderfuckProducts from "@/assets/alaskan-thunderfuck-products.png";
+import alienCookiesImage from "@/assets/alien-cookies.jpg";
+import alienCookiesSingle from "@/assets/alien-cookies-single.jpg";
+import alienCookiesProducts from "@/assets/alien-cookies-products.png";
+import strawberryKushImage from "@/assets/strawberry-kush.jpg";
+import strawberryKushSingle from "@/assets/strawberry-kush-single.jpg";
+import strawberryKushProducts from "@/assets/strawberry-kush-products.png";
 // THCP 2g Products
-import thcp2gNightCrawler from '@/assets/thcp-2g-night-crawler.png';
-import thcp2gCactusJack from '@/assets/thcp-2g-cactus-jack.png';
-import thcp2gGeorgiaPie from '@/assets/thcp-2g-georgia-pie.png';
-import thcp2gMiamiMintz from '@/assets/thcp-2g-miami-mintz.png';
-import thcp2gDayCrawler from '@/assets/thcp-2g-day-crawler.png';
-import thcp2gForbiddenFruit from '@/assets/thcp-2g-forbidden-fruit.png';
+import thcp2gNightCrawler from "@/assets/thcp-2g-night-crawler.png";
+import thcp2gCactusJack from "@/assets/thcp-2g-cactus-jack.png";
+import thcp2gGeorgiaPie from "@/assets/thcp-2g-georgia-pie.png";
+import thcp2gMiamiMintz from "@/assets/thcp-2g-miami-mintz.png";
+import thcp2gDayCrawler from "@/assets/thcp-2g-day-crawler.png";
+import thcp2gForbiddenFruit from "@/assets/thcp-2g-forbidden-fruit.png";
 // THCA 2g Products
-import thca2gEmeraldCity from '@/assets/thca-2g-emerald-city.png';
-import thca2gRubySlippers from '@/assets/thca-2g-ruby-slippers.png';
-import thca2gNorthernLights from '@/assets/thca-2g-northern-lights.png';
-import thca2gBlueDream from '@/assets/thca-2g-blue-dream.png';
+import thca2gEmeraldCity from "@/assets/thca-2g-emerald-city.png";
+import thca2gRubySlippers from "@/assets/thca-2g-ruby-slippers.png";
+import thca2gNorthernLights from "@/assets/thca-2g-northern-lights.png";
+import thca2gBlueDream from "@/assets/thca-2g-blue-dream.png";
 
 const productsTHCP15g = [
   {
@@ -33,7 +35,7 @@ const productsTHCP15g = [
     type: "Sativa",
     images: [alaskanThunderfuckImage, alaskanThunderfuckSingle, alaskanThunderfuckProducts],
     gradient: "from-blue-500 to-purple-600",
-    pdfUrl: "/alaskan-thunderfuck-coa.pdf"
+    pdfUrl: "/alaskan-thunderfuck-coa.pdf",
   },
   {
     id: 2,
@@ -41,7 +43,7 @@ const productsTHCP15g = [
     type: "Hybrid",
     images: [alienCookiesImage, alienCookiesSingle, alienCookiesProducts],
     gradient: "from-green-500 to-blue-600",
-    pdfUrl: "/alien-cookies-coa.pdf"
+    pdfUrl: "/alien-cookies-coa.pdf",
   },
   {
     id: 3,
@@ -49,8 +51,8 @@ const productsTHCP15g = [
     type: "Indica",
     images: [strawberryKushImage, strawberryKushSingle, strawberryKushProducts],
     gradient: "from-pink-500 to-red-600",
-    pdfUrl: "/strawberry-kush-coa.pdf"
-  }
+    pdfUrl: "/strawberry-kush-coa.pdf",
+  },
 ];
 
 const productsTHCP2g = [
@@ -60,7 +62,7 @@ const productsTHCP2g = [
     type: "Indica",
     images: [thcp2gNightCrawler],
     gradient: "from-purple-500 to-indigo-600",
-    pdfUrl: "#"
+    pdfUrl: "#",
   },
   {
     id: 2,
@@ -68,7 +70,7 @@ const productsTHCP2g = [
     type: "Sativa",
     images: [thcp2gCactusJack],
     gradient: "from-green-500 to-emerald-600",
-    pdfUrl: "#"
+    pdfUrl: "#",
   },
   {
     id: 3,
@@ -76,7 +78,7 @@ const productsTHCP2g = [
     type: "Hybrid",
     images: [thcp2gGeorgiaPie],
     gradient: "from-amber-500 to-yellow-600",
-    pdfUrl: "#"
+    pdfUrl: "#",
   },
   {
     id: 4,
@@ -84,7 +86,7 @@ const productsTHCP2g = [
     type: "Hybrid",
     images: [thcp2gMiamiMintz],
     gradient: "from-blue-400 to-cyan-500",
-    pdfUrl: "#"
+    pdfUrl: "#",
   },
   {
     id: 5,
@@ -92,7 +94,7 @@ const productsTHCP2g = [
     type: "Sativa",
     images: [thcp2gDayCrawler],
     gradient: "from-gray-500 to-slate-600",
-    pdfUrl: "#"
+    pdfUrl: "#",
   },
   {
     id: 6,
@@ -100,8 +102,8 @@ const productsTHCP2g = [
     type: "Indica",
     images: [thcp2gForbiddenFruit],
     gradient: "from-purple-400 to-pink-500",
-    pdfUrl: "#"
-  }
+    pdfUrl: "#",
+  },
 ];
 
 const productsTHCA2g = [
@@ -111,7 +113,7 @@ const productsTHCA2g = [
     type: "Sativa",
     images: [thca2gEmeraldCity],
     gradient: "from-emerald-500 to-green-600",
-    pdfUrl: "#"
+    pdfUrl: "#",
   },
   {
     id: 2,
@@ -119,7 +121,7 @@ const productsTHCA2g = [
     type: "Sativa",
     images: [thca2gRubySlippers],
     gradient: "from-red-500 to-rose-600",
-    pdfUrl: "#"
+    pdfUrl: "#",
   },
   {
     id: 3,
@@ -127,7 +129,7 @@ const productsTHCA2g = [
     type: "Indica",
     images: [thca2gNorthernLights],
     gradient: "from-pink-500 to-purple-600",
-    pdfUrl: "#"
+    pdfUrl: "#",
   },
   {
     id: 4,
@@ -135,8 +137,8 @@ const productsTHCA2g = [
     type: "Indica",
     images: [thca2gBlueDream],
     gradient: "from-blue-500 to-indigo-600",
-    pdfUrl: "#"
-  }
+    pdfUrl: "#",
+  },
 ];
 
 const ProductCarousel = ({ product }: { product: any }) => {
@@ -170,7 +172,7 @@ const ProductCarousel = ({ product }: { product: any }) => {
           />
           <div className={`absolute inset-0 bg-gradient-to-t ${product.gradient} opacity-20`} />
         </div>
-        
+
         {/* Navigation Arrows - Only show if multiple images */}
         {hasMultipleImages && (
           <>
@@ -194,7 +196,7 @@ const ProductCarousel = ({ product }: { product: any }) => {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? 'bg-white' : 'bg-white/50'
+                    index === currentIndex ? "bg-white" : "bg-white/50"
                   }`}
                 />
               ))}
@@ -207,10 +209,10 @@ const ProductCarousel = ({ product }: { product: any }) => {
       <div className="text-center">
         <h3 className="font-druk text-2xl text-foreground mb-2">{product.name}</h3>
         <p className="text-muted-foreground text-sm mb-4">{product.type}</p>
-        
+
         {/* CTA Button */}
-        <button 
-          onClick={() => window.open(product.pdfUrl, '_blank')}
+        <button
+          onClick={() => window.open(product.pdfUrl, "_blank")}
           className={`w-full py-3 px-6 bg-gradient-to-r ${product.gradient} text-white font-poppins-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105`}
         >
           View Lab Results
@@ -221,13 +223,14 @@ const ProductCarousel = ({ product }: { product: any }) => {
 };
 
 interface ProductSectionProps {
+  id: string;
   title: string;
   subtitle: string;
   products: any[];
 }
 
-const ProductSection = ({ title, subtitle, products }: ProductSectionProps) => (
-  <section className="py-16 bg-gradient-to-b from-background to-background/50">
+const ProductSection = ({ id, title, subtitle, products }: ProductSectionProps) => (
+  <section id={id} className="py-16 bg-gradient-to-b from-background to-background/50">
     <div className="container mx-auto px-4">
       <motion.div
         className="text-center mb-12"
@@ -249,6 +252,22 @@ const ProductSection = ({ title, subtitle, products }: ProductSectionProps) => (
 );
 
 const LabTesting = () => {
+  const location = useLocation();
+
+  // Cuando llegas con /lab-testing#thcp-15g, hace scroll a esa sección
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        // pequeño delay por si aún se está montando
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -294,31 +313,37 @@ const LabTesting = () => {
             viewport={{ once: true }}
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              All RAZ Pre-Roll products are made with 100% USA indoor-grown cannabis and undergo independent lab testing to ensure quality and safety. To access the lab results for your specific product and batch number, please refer to the information provided below.
+              All RAZ Pre-Roll products are made with 100% USA indoor-grown cannabis and undergo
+              independent lab testing to ensure quality and safety. To access the lab results for
+              your specific product and batch number, please refer to the information provided
+              below.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* THCP 1.5g Products Section */}
-      <ProductSection 
-        title="THCP 1.5g" 
-        subtitle="THC-P Diamond Infused Pre-Rolls" 
-        products={productsTHCP15g} 
+      <ProductSection
+        id="thcp-15g"
+        title="THCP 1.5g"
+        subtitle="THC-P Diamond Infused Pre-Rolls"
+        products={productsTHCP15g}
       />
 
       {/* THCP 2g Products Section */}
-      <ProductSection 
-        title="THCP 2g" 
-        subtitle="THC-P Diamond Infused Pre-Rolls - 2 Grams Each" 
-        products={productsTHCP2g} 
+      <ProductSection
+        id="thcp-2g"
+        title="THCP 2g"
+        subtitle="THC-P Diamond Infused Pre-Rolls - 2 Grams Each"
+        products={productsTHCP2g}
       />
 
       {/* THCA 2g Products Section */}
-      <ProductSection 
-        title="THCA 2g" 
-        subtitle="THC-A Diamond Infused Pre-Rolls - 2 Grams Each" 
-        products={productsTHCA2g} 
+      <ProductSection
+        id="thca-2g"
+        title="THCA 2g"
+        subtitle="THC-A Diamond Infused Pre-Rolls - 2 Grams Each"
+        products={productsTHCA2g}
       />
     </main>
   );
