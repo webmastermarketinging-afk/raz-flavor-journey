@@ -1,20 +1,21 @@
 import PreRollCarousel from "@/components/PreRollCarousel";
 import StrainShowcase from "@/components/StrainShowcase";
 import InfiniteScroll from "@/components/InfiniteScroll";
-import ProductStorytellingScroll from "@/components/ProductStorytellingScroll";
+// ❌ Eliminamos la importación del slider
+// import ProductStorytellingScroll from "@/components/ProductStorytellingScroll";
 import ComplianceSection from "@/components/ComplianceSection";
 import NewsletterSection from "@/components/NewsletterSection";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
-      {/* Banner estático — ya NO usamos HeroSection */}
+      {/* Banner estático */}
       <PreRollCarousel />
 
       <InfiniteScroll />
       <StrainShowcase />
 
-      {/* Si quieres activar estas secciones, descomenta */}
+      {/* Secciones opcionales */}
       {/* <ProductStorytellingScroll /> */}
       {/* <ComplianceSection /> */}
 
