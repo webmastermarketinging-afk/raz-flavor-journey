@@ -82,12 +82,12 @@ const Navigation = () => {
                 </button>
 
                 {isProductsOpen && (
-                  <div className="absolute right-0 mt-2 w-48 glass rounded-2xl border border-white/10 shadow-lg py-2 z-40">
+                  <div className="absolute right-0 mt-2 w-48 bg-white/95 dark:bg-raz-black/95 backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-white/10 shadow-xl py-2 z-40">
                     {productLinks.map((prod) => (
                       <Link
                         key={prod.name}
                         to={prod.href}
-                        className="block px-4 py-2 text-sm text-foreground hover:bg-white/10 transition-colors"
+                        className="block px-4 py-2 text-sm text-raz-black dark:text-foreground hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                       >
                         {prod.name}
                       </Link>
