@@ -25,11 +25,7 @@ const faqs = [
     question: "How much THC-P is in each pre-roll?",
     answer: "Each RAZ Pre-Roll contains 1.5 grams of premium cannabis infused with THC-P diamonds. The exact THC-P concentration varies by strain and batch. Please refer to the lab results for your specific product and batch number for detailed cannabinoid profiles."
   },
-  {
-    id: "item-4",
-    question: "What strains are available?",
-    answer: "RAZ offers three distinct strain profiles: Alaskan Thunderfuck (Sativa), Alien Cookies (Hybrid), and Strawberry Kush (Indica). Each strain provides unique flavor profiles and effects to suit different preferences and experiences."
-  },
+  
   {
     id: "item-5",
     question: "How should I store my RAZ Pre-Rolls?",
