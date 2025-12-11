@@ -26,7 +26,7 @@ const productImages = [
 const flavors = [
   {
     id: 1,
-    name: "Alaskan Thunderfuck",
+    name: "Alaskan Thunderf*ck",
     type: "Sativa",
     images: [alaskanThunderfuckImage, alaskanThunderfuckSingle, alaskanThunderfuckProducts],
     gradient: "from-blue-500 to-purple-600",
