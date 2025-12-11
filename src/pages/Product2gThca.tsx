@@ -3,36 +3,32 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Product images
-import thcp2gSingle from "@/assets/2g-thcp-single.jpg";
-import thcp2gProducts from "@/assets/2g-thcp-products.jpg";
-import thcp2gBox from "@/assets/2g-thcp-box.jpg";
+import thca2gSingle from "@/assets/2g-thca-single.jpg";
+import thca2gProducts from "@/assets/2g-thca-products.jpg";
+import thca2gBox from "@/assets/2g-thca-box.jpg";
 // Flavor images
-import thcp2gNightCrawler from "@/assets/thcp-2g-night-crawler.png";
-import thcp2gCactusJack from "@/assets/thcp-2g-cactus-jack.png";
-import thcp2gGeorgiaPie from "@/assets/thcp-2g-georgia-pie.png";
-import thcp2gMiamiMintz from "@/assets/thcp-2g-miami-mintz.png";
-import thcp2gDayCrawler from "@/assets/thcp-2g-day-crawler.png";
-import thcp2gForbiddenFruit from "@/assets/thcp-2g-forbidden-fruit.png";
+import thca2gEmeraldCity from "@/assets/thca-2g-emerald-city.png";
+import thca2gRubySlippers from "@/assets/thca-2g-ruby-slippers.png";
+import thca2gNorthernLights from "@/assets/thca-2g-northern-lights.png";
+import thca2gBlueDream from "@/assets/thca-2g-blue-dream.png";
 
-const productImages = [thcp2gSingle, thcp2gProducts, thcp2gBox];
+const productImages = [thca2gSingle, thca2gProducts, thca2gBox];
 
 const flavors = [
-  { id: 1, name: "Night Crawler", type: "Indica", image: thcp2gNightCrawler, gradient: "from-purple-500 to-indigo-600", pdfUrl: "#" },
-  { id: 2, name: "Cactus Jack", type: "Sativa", image: thcp2gCactusJack, gradient: "from-green-500 to-emerald-600", pdfUrl: "#" },
-  { id: 3, name: "Georgia Pie", type: "Hybrid", image: thcp2gGeorgiaPie, gradient: "from-amber-500 to-yellow-600", pdfUrl: "#" },
-  { id: 4, name: "Miami Mintz", type: "Hybrid", image: thcp2gMiamiMintz, gradient: "from-blue-400 to-cyan-500", pdfUrl: "#" },
-  { id: 5, name: "Day Crawler", type: "Sativa", image: thcp2gDayCrawler, gradient: "from-gray-500 to-slate-600", pdfUrl: "#" },
-  { id: 6, name: "Forbidden Fruit", type: "Indica", image: thcp2gForbiddenFruit, gradient: "from-purple-400 to-pink-500", pdfUrl: "#" },
+  { id: 1, name: "Emerald City", type: "Sativa", image: thca2gEmeraldCity, gradient: "from-emerald-500 to-green-600", pdfUrl: "#" },
+  { id: 2, name: "Ruby Slippers", type: "Sativa", image: thca2gRubySlippers, gradient: "from-red-500 to-rose-600", pdfUrl: "#" },
+  { id: 3, name: "Northern Lights", type: "Indica", image: thca2gNorthernLights, gradient: "from-pink-500 to-purple-600", pdfUrl: "#" },
+  { id: 4, name: "Blue Dream", type: "Indica", image: thca2gBlueDream, gradient: "from-blue-500 to-indigo-600", pdfUrl: "#" },
 ];
 
 const productInfo = {
-  name: "2G THCP",
-  strainType: "Available in six strains, including sativa, hybrid, and indica options. Each preroll is infused with THCP diamonds and bold terpene profiles.",
-  effects: ["Potent", "Flavorful", "Long-Lasting", "Body and Mind Elevation"],
-  strainName: "Choose from six strains, each offering its own flavor and effect. Perfect for users who want a strong, smooth, terpene-rich 2g preroll experience.",
+  name: "2G THCA",
+  strainType: "Offered in four strain varieties, including uplifting sativas and relaxing indicas. Infused with THCA diamonds for a clean, powerful effect.",
+  effects: ["Clear", "Strong", "Aromatic", "Balanced Body and Mind"],
+  strainName: "Four strains available, each with unique terpene notes and effects. Ideal for customers who want flavor, purity, and a potent THCA preroll.",
 };
 
-const Product2gThcp = () => {
+const Product2gThca = () => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const nextImage = () => {
@@ -47,7 +43,7 @@ const Product2gThcp = () => {
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-thcp opacity-10" />
+        <div className="absolute inset-0 bg-gradient-thca opacity-10" />
         
         <div className="container mx-auto px-4">
           <motion.div
@@ -57,7 +53,7 @@ const Product2gThcp = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="font-druk text-5xl lg:text-7xl text-foreground mb-4">{productInfo.name}</h1>
-            <p className="text-xl text-muted-foreground">THC-P Diamond Infused Pre-Rolls</p>
+            <p className="text-xl text-muted-foreground">THC-A Diamond Infused Pre-Rolls</p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -74,7 +70,7 @@ const Product2gThcp = () => {
                   alt={productInfo.name}
                   className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
                 />
-                <div className="absolute -inset-4 bg-gradient-thcp opacity-20 rounded-2xl blur-xl -z-10" />
+                <div className="absolute -inset-4 bg-gradient-thca opacity-20 rounded-2xl blur-xl -z-10" />
                 
                 {productImages.length > 1 && (
                   <>
@@ -100,7 +96,7 @@ const Product2gThcp = () => {
                     key={index}
                     onClick={() => setActiveImageIndex(index)}
                     className={`w-3 h-3 rounded-full transition-all ${
-                      index === activeImageIndex ? "bg-gradient-thcp shadow-neon scale-125" : "bg-muted"
+                      index === activeImageIndex ? "bg-gradient-thca shadow-neon scale-125" : "bg-muted"
                     }`}
                   />
                 ))}
@@ -153,10 +149,10 @@ const Product2gThcp = () => {
             viewport={{ once: true }}
           >
             <h2 className="font-druk text-4xl lg:text-5xl text-foreground mb-2">Available Flavors</h2>
-            <p className="text-muted-foreground text-lg">Six unique strains to choose from</p>
+            <p className="text-muted-foreground text-lg">Four unique strains to choose from</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {flavors.map((flavor, index) => (
               <motion.div
                 key={flavor.id}
@@ -197,4 +193,4 @@ const Product2gThcp = () => {
   );
 };
 
-export default Product2gThcp;
+export default Product2gThca;
