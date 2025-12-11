@@ -33,7 +33,7 @@ import thca2gFireIce from "@/assets/thca-2g-fire-ice.png";
 const productsTHCP15g = [
   {
     id: 1,
-    name: "Alaskan Thunderfuck",
+    name: "Alaskan Thunderf*ck",
     type: "Sativa",
     images: [alaskanThunderfuckImage, alaskanThunderfuckSingle, alaskanThunderfuckProducts],
     gradient: "from-blue-500 to-purple-600",
