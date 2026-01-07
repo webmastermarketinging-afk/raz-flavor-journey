@@ -111,10 +111,10 @@ const productsTHCP2g = [
 const productsTHCA2g = [
   {
     id: 1,
-    name: "Emerald City",
+    name: "Esmerald City",
     type: "Sativa",
     images: [thca2gEmeraldCity],
-    gradient: "from-emerald-500 to-green-600",
+    gradient: "from-esmerald-500 to-green-600",
     pdfUrl: "#",
   },
   {
